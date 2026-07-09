@@ -10,7 +10,7 @@ const projects = [
         badge: "Current Project",
         desc: "An AI-powered application that reviews source code, identifies issues, explains improvements, and provides intelligent suggestions using modern AI models. This project helps me strengthen my React, Python, FastAPI, API integration, and prompt engineering skills.",
         tech: ["React", "Python", "FastAPI", "OpenAI API", "Swagger", "GitHub"],
-        github: "https://github.com",
+        github: "https://github.com/amey110",
         demo: null, // Coming Soon
         image: aiCodeReviewerImg,
         stats: ["Current Project", "AI", "React", "FastAPI"]
@@ -19,7 +19,7 @@ const projects = [
         title: "Personal Portfolio",
         desc: "A modern developer portfolio built with React, featuring premium UI, glassmorphism, smooth animations, responsive layouts, and clean component architecture.",
         tech: ["React", "Tailwind CSS", "Framer Motion", "Vite"],
-        github: "https://github.com",
+        github: "https://github.com/amey110/Amey-Portfolio",
         demo: "#",
         image: personalPortfolioImg,
         stats: ["Portfolio", "UI/UX", "React", "Vite"]

@@ -10,9 +10,9 @@ const Footer = () => {
                 {/* Animated Social Icons */}
                 <div className="flex items-center gap-2">
                     {[
-                        { icon: Github, href: 'https://github.com' },
-                        { icon: Linkedin, href: 'https://linkedin.com' },
-                        { icon: Mail, href: 'mailto:amey@example.com' }
+                        { icon: Github, href: 'https://github.com/amey110' },
+                        { icon: Linkedin, href: 'https://www.linkedin.com/in/amey-jadhav-6a677b28a/' },
+                        { icon: Mail, href: 'mailto:ameyjadhav2211@gmail.com' }
                     ].map((social, idx) => (
                         <motion.a
                             key={idx}

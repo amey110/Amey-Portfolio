@@ -109,7 +109,7 @@ const Navbar = () => {
                 {/* CTA / Socials */}
                 <div className="hidden md:flex items-center space-x-4">
                     <motion.a
-                        href="https://github.com"
+                        href="https://github.com/amey110"
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.12, rotate: 5, boxShadow: "0 4px 12px rgba(37,99,235,0.06)" }}
@@ -119,7 +119,7 @@ const Navbar = () => {
                         <Github size={18} />
                     </motion.a>
                     <motion.a
-                        href="https://linkedin.com"
+                        href="https://www.linkedin.com/in/amey-jadhav-6a677b28a/"
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.12, rotate: -5, boxShadow: "0 4px 12px rgba(37,99,235,0.06)" }}

@@ -86,7 +86,7 @@ const Hero = () => {
                 <div className="text-sm font-semibold text-slate-400 flex items-center gap-1.5">
                     <span>📍</span> Maharashtra, India
                 </div>
-            </motion.div>iv>
+            </motion.div>
 
             {/* Floating Elements (Subtle Soft Blobs) */}
             <div className="absolute top-1/4 left-1/10 md:left-20 animate-pulse-slow opacity-15 pointer-events-none blur-3xl w-48 h-48 bg-primary/20 rounded-full"></div>
