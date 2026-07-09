@@ -12,8 +12,8 @@ function App() {
         <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="relative min-h-screen"
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="relative min-h-screen bg-white"
         >
             {/* Background Layer */}
             <div className="aurora-bg" />
@@ -22,7 +22,7 @@ function App() {
             <Navbar />
 
             {/* Main Content */}
-            <main className="container mx-auto px-6 space-y-36 pb-20">
+            <main className="space-y-0 pb-0">
                 <Hero />
                 <About />
                 <Skills />

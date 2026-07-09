@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import { Github, Linkedin, Menu, X } from 'lucide-react'
+import { Github, Linkedin, Menu, X, Download } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
 const navLinks = [
@@ -17,11 +17,7 @@ const Navbar = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 20) {
-                setScrolled(true)
-            } else {
-                setScrolled(false)
-            }
+            setScrolled(window.scrollY > 20)
         }
         window.addEventListener('scroll', handleScroll)
         return () => window.removeEventListener('scroll', handleScroll)
@@ -59,25 +55,36 @@ const Navbar = () => {
         }
     }, [])
 
+    // Close mobile menu when clicking outside
+    useEffect(() => {
+        if (isOpen) {
+            const handleClick = () => setIsOpen(false)
+            document.addEventListener('click', handleClick)
+            return () => document.removeEventListener('click', handleClick)
+        }
+    }, [isOpen])
+
     return (
         <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-            scrolled ? 'py-3 px-6' : 'py-5 px-6'
+            scrolled ? 'py-3' : 'py-4'
         }`}>
-            <div className={`max-w-7xl mx-auto flex items-center justify-between px-6 py-3.5 rounded-full transition-all duration-500 border ${
+            <div className={`max-w-5xl mx-auto flex items-center justify-between px-5 py-3 rounded-2xl mx-4 sm:mx-6 lg:mx-auto transition-all duration-500 ${
                 scrolled 
-                ? 'glass bg-white/72 border-white/40 shadow-[0_12px_40px_-12px_rgba(37,99,235,0.08)] backdrop-blur-[18px]' 
-                : 'bg-white/35 border-transparent shadow-none backdrop-blur-md'
+                ? 'bg-white/80 backdrop-blur-xl border border-border-subtle shadow-nav' 
+                : 'bg-transparent border border-transparent'
             }`}>
-                <motion.div
+                {/* Logo */}
+                <motion.a
+                    href="#"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    className="text-2xl font-extrabold text-gradient tracking-tight"
+                    className="text-xl font-extrabold tracking-tight text-foreground hover:text-primary transition-colors duration-300"
                 >
-                    AJ.
-                </motion.div>
+                    AJ<span className="text-primary">.</span>
+                </motion.a>
 
                 {/* Desktop Nav */}
-                <div className="hidden md:flex items-center space-x-2">
+                <div className="hidden md:flex items-center gap-1">
                     {navLinks.map((link, i) => {
                         const targetId = link.href === '#' ? 'home' : link.href.slice(1)
                         const isActive = activeSection === targetId
@@ -88,17 +95,20 @@ const Navbar = () => {
                                 href={link.href}
                                 initial={{ opacity: 0, y: -10 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: i * 0.08, duration: 0.5 }}
-                                className={`relative text-xs lg:text-sm font-semibold transition-all duration-300 py-1.5 px-4 rounded-full ${
-                                    isActive ? 'text-primary' : 'text-slate-655 hover:text-slate-900 hover:bg-slate-900/5'
+                                transition={{ delay: i * 0.06, duration: 0.4 }}
+                                className={`relative text-[13px] font-semibold transition-all duration-300 py-2 px-3.5 rounded-lg ${
+                                    isActive 
+                                    ? 'text-primary bg-blue-50' 
+                                    : 'text-foreground-secondary hover:text-foreground hover:bg-slate-50'
                                 }`}
                             >
                                 <span className="relative z-10">{link.name}</span>
                                 {isActive && (
                                     <motion.span
-                                        layoutId="activeNavUnderline"
-                                        className="absolute bottom-0 left-4 right-4 h-0.5 bg-primary rounded-full"
-                                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                                        layoutId="activeNav"
+                                        className="absolute inset-0 bg-blue-50 rounded-lg"
+                                        style={{ zIndex: 0 }}
+                                        transition={{ type: "spring", stiffness: 400, damping: 30 }}
                                     />
                                 )}
                             </motion.a>
@@ -106,35 +116,53 @@ const Navbar = () => {
                     })}
                 </div>
 
-                {/* CTA / Socials */}
-                <div className="hidden md:flex items-center space-x-4">
+                {/* Right side: Resume + Socials */}
+                <div className="hidden md:flex items-center gap-3">
                     <motion.a
                         href="https://github.com/amey110"
                         target="_blank"
                         rel="noopener noreferrer"
-                        whileHover={{ scale: 1.12, rotate: 5, boxShadow: "0 4px 12px rgba(37,99,235,0.06)" }}
+                        whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
-                        className="text-slate-600 hover:text-primary p-2 rounded-full hover:bg-primary/5 transition-all duration-300"
+                        className="text-foreground-secondary hover:text-foreground p-2 rounded-lg hover:bg-slate-50 transition-all duration-300"
+                        aria-label="GitHub"
                     >
-                        <Github size={18} />
+                        <Github size={17} />
                     </motion.a>
                     <motion.a
                         href="https://www.linkedin.com/in/amey-jadhav-6a677b28a/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        whileHover={{ scale: 1.12, rotate: -5, boxShadow: "0 4px 12px rgba(37,99,235,0.06)" }}
+                        whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
-                        className="text-slate-600 hover:text-primary p-2 rounded-full hover:bg-primary/5 transition-all duration-300"
+                        className="text-foreground-secondary hover:text-foreground p-2 rounded-lg hover:bg-slate-50 transition-all duration-300"
+                        aria-label="LinkedIn"
                     >
-                        <Linkedin size={18} />
+                        <Linkedin size={17} />
+                    </motion.a>
+                    <motion.a
+                        href="/resume/Amey_Jadhav_Resume.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        download
+                        whileHover={{ scale: 1.03 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="ml-1 px-4 py-2 bg-foreground text-white rounded-lg text-[13px] font-semibold flex items-center gap-2 hover:bg-slate-800 transition-all duration-300 shadow-button"
+                    >
+                        <Download size={14} />
+                        Resume
                     </motion.a>
                 </div>
 
+                {/* Mobile Menu Button */}
                 <div className="md:hidden">
                     <button 
-                        onClick={() => setIsOpen(!isOpen)} 
+                        onClick={(e) => {
+                            e.stopPropagation()
+                            setIsOpen(!isOpen)
+                        }}
                         aria-label="Toggle mobile menu"
-                        className="text-slate-900 p-1.5 rounded-full hover:bg-slate-900/5 transition-colors focus:outline-none"
+                        className="text-foreground p-2 rounded-lg hover:bg-slate-50 transition-colors focus:outline-none"
                     >
                         {isOpen ? <X size={20} /> : <Menu size={20} />}
                     </button>
@@ -145,11 +173,12 @@ const Navbar = () => {
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.95, y: -10 }}
-                        animate={{ opacity: 1, scale: 1, y: 0 }}
-                        exit={{ opacity: 0, scale: 0.95, y: -10 }}
+                        initial={{ opacity: 0, y: -8, scale: 0.98 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: -8, scale: 0.98 }}
                         transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                        className="md:hidden absolute top-20 left-6 right-6 glass p-6 rounded-2xl flex flex-col space-y-3 shadow-xl border border-white/40 z-50"
+                        onClick={(e) => e.stopPropagation()}
+                        className="md:hidden absolute top-full left-4 right-4 mt-2 bg-white/95 backdrop-blur-xl p-4 rounded-2xl flex flex-col gap-1 shadow-card-hover border border-border-subtle z-50"
                     >
                         {navLinks.map((link) => {
                             const targetId = link.href === '#' ? 'home' : link.href.slice(1)
@@ -160,16 +189,30 @@ const Navbar = () => {
                                     key={link.name}
                                     href={link.href}
                                     onClick={() => setIsOpen(false)}
-                                    className={`text-base font-semibold py-2.5 px-4 rounded-xl transition-all duration-300 ${
+                                    className={`text-sm font-semibold py-2.5 px-4 rounded-xl transition-all duration-300 ${
                                         isActive 
-                                        ? 'text-primary bg-primary/5 font-bold border-l-2 border-primary' 
-                                        : 'text-slate-600 hover:text-primary hover:bg-slate-900/5'
+                                        ? 'text-primary bg-blue-50 font-bold' 
+                                        : 'text-foreground-secondary hover:text-foreground hover:bg-slate-50'
                                     }`}
                                 >
                                     {link.name}
                                 </a>
                             )
                         })}
+                        
+                        {/* Mobile Resume Button */}
+                        <div className="pt-2 mt-1 border-t border-border-subtle">
+                            <a
+                                href="/resume/Amey_Jadhav_Resume.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                download
+                                className="flex items-center justify-center gap-2 py-2.5 px-4 bg-foreground text-white rounded-xl text-sm font-semibold hover:bg-slate-800 transition-all"
+                            >
+                                <Download size={15} />
+                                Download Resume
+                            </a>
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>
