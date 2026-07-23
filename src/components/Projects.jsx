@@ -9,7 +9,7 @@ const projects = [
         desc: "An AI-powered code review platform that analyzes source code and provides intelligent suggestions for improving code quality and maintainability.",
         tech: ["React", "FastAPI", "Python", "JavaScript", "Git"],
         github: "https://github.com/amey110",
-        demo: "https://ai-code-reviewer.vercel.app/",
+        demo: "https://code-pilot-ai-beta.vercel.app/",
         image: aiCodeReviewerImg,
     },
     {
