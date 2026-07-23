@@ -4,14 +4,14 @@ import aiCodeReviewerImg from '../assets/ai-code-reviewer.png'
 import personalPortfolioImg from '../assets/personal-portfolio.png'
 
 const projects = [
-    {
-        title: "AI Code Reviewer",
-        desc: "An AI-powered code review platform that analyzes source code and provides intelligent suggestions for improving code quality and maintainability.",
-        tech: ["React", "FastAPI", "Python", "JavaScript", "Git"],
-        github: "https://github.com/amey110",
-        demo: "https://code-pilot-ai-beta.vercel.app/",
-        image: aiCodeReviewerImg,
-    },
+   {
+  title: "AI Code Reviewer",
+  desc: "An AI-powered code review platform that analyzes source code and provides intelligent feedback.",
+  tech: ["React", "FastAPI", "Python", "JavaScript", "Git"],
+  github: "https://github.com/amey110/CodePilot-AI",
+  demo: "https://code-pilot-ai-beta.vercel.app/",
+  image: aiCodeReviewerImg,
+},
     {
         title: "Personal Portfolio",
         desc: "A modern responsive portfolio showcasing my projects, technical skills and developer journey.",
