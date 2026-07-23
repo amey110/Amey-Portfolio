@@ -6,11 +6,10 @@ import personalPortfolioImg from '../assets/personal-portfolio.png'
 const projects = [
     {
         title: "AI Code Reviewer",
-        badge: "Work In Progress",
         desc: "An AI-powered code review platform that analyzes source code and provides intelligent suggestions for improving code quality and maintainability.",
         tech: ["React", "FastAPI", "Python", "JavaScript", "Git"],
         github: "https://github.com/amey110",
-        demo: null,
+        demo: "#",
         image: aiCodeReviewerImg,
     },
     {
@@ -145,7 +144,8 @@ const Projects = () => {
                                         </motion.a>
                                     ) : (
                                         <span className="flex-1 px-4 py-2.5 bg-slate-50 text-foreground-secondary border border-border-subtle rounded-xl text-sm font-semibold flex items-center justify-center gap-2 cursor-not-allowed opacity-60">
-                                            Coming Soon
+                                            Live Demo
+                                            <ExternalLink size={14} />      
                                         </span>
                                     )}
                                 </div>
