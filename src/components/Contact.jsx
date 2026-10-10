@@ -55,13 +55,13 @@ const Contact = () => {
             <div className="max-w-6xl mx-auto px-6">
                 {/* Header */}
                 <div className="section-header">
-                    <p className="text-accent font-mono text-xs uppercase tracking-wider mb-2">
+                    <p className="text-accent font-mono text-[0.75rem] uppercase tracking-[0.08em] font-medium mb-2">
                         05 / Contact
                     </p>
-                    <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-text font-display mb-3">
+                    <h2 className="text-h2 text-text mb-3">
                         Get in touch
                     </h2>
-                    <p className="text-text-muted text-sm md:text-base max-w-2xl leading-relaxed">
+                    <p className="text-text-muted text-body max-w-[65ch] leading-[1.7]">
                         Have an opportunity, questions about my work, or want to connect? Send a note or reach out directly.
                     </p>
                 </div>
@@ -72,8 +72,8 @@ const Contact = () => {
                         {/* Left: Contact Info */}
                         <div className="space-y-6">
                             <div>
-                                <h3 className="text-lg font-bold mb-2 text-text font-display">Let's collaborate</h3>
-                                <p className="text-text-muted text-xs sm:text-sm leading-relaxed">
+                                <h3 className="text-h3 mb-2 text-text">Let's collaborate</h3>
+                                <p className="text-text-muted text-sm leading-[1.7] max-w-[65ch]">
                                     I'm currently open to <span className="text-text font-semibold">Fullstack Developer</span>, <span className="text-text font-semibold">React Developer</span>, and <span className="text-text font-semibold">Software Developer</span> opportunities.
                                 </p>
                             </div>
@@ -81,20 +81,20 @@ const Contact = () => {
                             {/* Contact Cards */}
                             <div className="space-y-2.5">
                                 {contactItems.map((item) => (
-                                    <a
-                                        key={item.label}
-                                        href={item.href}
-                                        {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                                        className="flex items-center gap-3 p-3 rounded-md border border-border hover:border-accent bg-bg transition-colors duration-150 group"
-                                    >
-                                        <div className="p-2 rounded bg-bg-alt border border-border text-accent group-hover:text-accent-hover transition-colors flex-shrink-0">
-                                            <item.icon size={15} />
-                                        </div>
-                                        <div className="min-w-0">
-                                            <p className="text-[10px] text-text-muted font-mono uppercase tracking-wider">{item.label}</p>
-                                            <p className="text-text font-medium text-xs truncate group-hover:text-accent transition-colors">{item.value}</p>
-                                        </div>
-                                    </a>
+                                     <a
+                                         key={item.label}
+                                         href={item.href}
+                                         {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                                         className="flex items-center gap-3 p-3 rounded-md border border-border hover:border-accent bg-bg transition-colors duration-150 group"
+                                     >
+                                         <div className="p-2 rounded bg-bg-alt border border-border text-accent group-hover:text-accent-hover transition-colors flex-shrink-0">
+                                             <item.icon size={15} />
+                                         </div>
+                                         <div className="min-w-0">
+                                             <p className="text-text-muted font-mono text-[0.75rem] uppercase tracking-[0.08em] font-medium">{item.label}</p>
+                                             <p className="text-text font-medium text-sm truncate group-hover:text-accent transition-colors">{item.value}</p>
+                                         </div>
+                                     </a>
                                 ))}
                             </div>
 
@@ -104,7 +104,7 @@ const Contact = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 download
-                                className="flex items-center justify-center gap-2 w-full py-2.5 bg-text text-bg rounded-md text-xs font-medium hover:opacity-90 transition-opacity"
+                                className="flex items-center justify-center gap-2 w-full py-2.5 bg-text text-bg rounded-md text-sm font-medium hover:opacity-90 transition-opacity"
                             >
                                 <Download size={14} />
                                 Download Resume
@@ -121,7 +121,7 @@ const Contact = () => {
                                         onSubmit={handleSubmit}
                                     >
                                         <div className="space-y-1">
-                                            <label className="text-xs font-mono text-text-muted uppercase tracking-wider">Your Name</label>
+                                            <label className="font-mono text-[0.75rem] text-text-muted uppercase tracking-[0.08em] font-medium">Your Name</label>
                                             <input
                                                 type="text"
                                                 required
@@ -132,7 +132,7 @@ const Contact = () => {
                                             />
                                         </div>
                                         <div className="space-y-1">
-                                            <label className="text-xs font-mono text-text-muted uppercase tracking-wider">Email Address</label>
+                                            <label className="font-mono text-[0.75rem] text-text-muted uppercase tracking-[0.08em] font-medium">Email Address</label>
                                             <input
                                                 type="email"
                                                 required
@@ -143,7 +143,7 @@ const Contact = () => {
                                             />
                                         </div>
                                         <div className="space-y-1">
-                                            <label className="text-xs font-mono text-text-muted uppercase tracking-wider">Message</label>
+                                            <label className="font-mono text-[0.75rem] text-text-muted uppercase tracking-[0.08em] font-medium">Message</label>
                                             <textarea
                                                 rows="4"
                                                 required
@@ -170,14 +170,14 @@ const Contact = () => {
                                         <div className="w-10 h-10 text-accent mb-3 flex items-center justify-center">
                                             <CheckCircle2 size={36} />
                                         </div>
-                                        <h4 className="text-base font-bold text-text mb-1">Message Sent</h4>
-                                        <p className="text-text-muted text-xs max-w-xs mb-5 leading-relaxed">
+                                        <h4 className="text-base font-medium text-text mb-1">Message Sent</h4>
+                                        <p className="text-text-muted text-sm max-w-[65ch] mb-5 leading-[1.7]">
                                             Thank you for reaching out. I will review your message and respond shortly.
                                         </p>
                                         <button
                                             type="button"
                                             onClick={() => setIsSubmitted(false)}
-                                            className="px-4 py-2 bg-card border border-border text-text hover:border-accent rounded-md font-medium text-xs transition-colors"
+                                            className="px-4 py-2 bg-card border border-border text-text hover:border-accent rounded-md font-medium text-sm transition-colors"
                                         >
                                             Send Another Message
                                         </button>

@@ -90,7 +90,7 @@ const Navbar = () => {
                 {/* Logo */}
                 <a
                     href="#"
-                    className="text-xl font-bold tracking-tight text-text hover:text-accent font-display transition-colors"
+                    className="text-xl font-semibold tracking-tight text-text hover:text-accent transition-colors"
                 >
                     AJ<span className="text-accent">.</span>
                 </a>
@@ -107,7 +107,7 @@ const Navbar = () => {
                                 href={link.href}
                                 className={`text-[13px] font-medium transition-colors duration-150 py-1.5 px-3 rounded-md ${
                                     isActive 
-                                    ? 'text-accent font-semibold' 
+                                    ? 'text-accent' 
                                     : 'text-text-muted hover:text-text'
                                 }`}
                             >
@@ -205,7 +205,7 @@ const Navbar = () => {
                                     onClick={() => setIsOpen(false)}
                                     className={`text-sm font-medium py-2 px-3 rounded-md transition-colors duration-150 ${
                                         isActive 
-                                        ? 'text-accent font-semibold bg-bg-alt' 
+                                        ? 'text-accent bg-bg-alt' 
                                         : 'text-text-muted hover:text-text'
                                     }`}
                                 >

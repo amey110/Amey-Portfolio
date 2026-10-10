@@ -8,10 +8,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        serif: ['Newsreader', 'Georgia', 'serif'],
-        display: ['Space Grotesk', 'sans-serif'],
-        mono: ['"JetBrains Mono"', 'monospace'],
+        sans: ['Inter', 'system-ui', '-apple-system', '"Segoe UI"', 'Roboto', 'Arial', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Consolas', 'monospace'],
       },
       colors: {
         bg: 'var(--bg)',
@@ -32,13 +30,11 @@ export default {
         'border-subtle': 'var(--border)',
       },
       fontSize: {
-        'hero': ['3.75rem', { lineHeight: '1.1', letterSpacing: '-0.03em', fontWeight: '700' }],
-        'hero-md': ['2.75rem', { lineHeight: '1.15', letterSpacing: '-0.025em', fontWeight: '700' }],
-        'hero-sm': ['2.25rem', { lineHeight: '1.2', letterSpacing: '-0.02em', fontWeight: '700' }],
-        'section': ['2.25rem', { lineHeight: '1.2', letterSpacing: '-0.025em', fontWeight: '600' }],
-        'card-heading': ['1.25rem', { lineHeight: '1.4', fontWeight: '600' }],
-        'body': ['1.0625rem', { lineHeight: '1.75' }],
-        'body-sm': ['0.9375rem', { lineHeight: '1.65' }],
+        'h1': ['clamp(2.25rem, 5vw, 3.5rem)', { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '600' }],
+        'h2': ['clamp(1.75rem, 3vw, 2.25rem)', { lineHeight: '1.2', letterSpacing: '-0.015em', fontWeight: '600' }],
+        'h3': ['1.25rem', { lineHeight: '1.4', fontWeight: '500' }],
+        'body': ['1rem', { lineHeight: '1.7' }],
+        'label': ['0.75rem', { letterSpacing: '0.08em', fontWeight: '500' }],
       },
       borderRadius: {
         'sm': '4px',

@@ -53,13 +53,13 @@ const Projects = () => {
             <div className="max-w-6xl mx-auto px-6">
                 {/* Header */}
                 <div className="section-header">
-                    <p className="text-accent font-mono text-xs uppercase tracking-wider mb-2">
+                    <p className="text-accent font-mono text-[0.75rem] uppercase tracking-[0.08em] font-medium mb-2">
                         03 / Projects
                     </p>
-                    <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-text font-display mb-3">
+                    <h2 className="text-h2 mb-3 text-text">
                         Featured Projects
                     </h2>
-                    <p className="text-text-muted text-sm md:text-base max-w-2xl leading-relaxed">
+                    <p className="text-text-muted text-base leading-[1.7] max-w-[65ch]">
                         Fullstack web applications and software built from the ground up, highlighting end-to-end architecture and clean execution.
                     </p>
                 </div>
@@ -80,7 +80,7 @@ const Projects = () => {
                                     className="w-full h-full object-cover object-top"
                                 />
                                 {project.badge && (
-                                    <span className="absolute top-3 right-3 px-2 py-0.5 text-[11px] font-mono font-semibold rounded bg-card/95 border border-border text-accent">
+                                    <span className="absolute top-3 right-3 px-2 py-0.5 text-[0.75rem] font-mono tracking-[0.08em] uppercase font-medium rounded bg-card/95 border border-border text-accent">
                                         {project.badge}
                                     </span>
                                 )}
@@ -88,18 +88,18 @@ const Projects = () => {
 
                             {/* Card Body */}
                             <div className="p-6 flex flex-col flex-1">
-                                <h3 className="text-lg font-bold mb-2 text-text font-display">
+                                <h3 className="text-h3 mb-2 text-text">
                                     {project.title}
                                 </h3>
                                 
-                                <p className="text-text-muted text-xs sm:text-sm leading-relaxed mb-4">
+                                <p className="text-text-muted text-sm leading-[1.7] mb-4">
                                     {project.desc}
                                 </p>
 
                                 {/* Architecture Flow */}
                                 {project.architecture && (
-                                    <div className="mb-4 p-2.5 rounded-md bg-bg-alt border border-border font-mono text-[11px] text-text-muted">
-                                        <span className="text-accent font-semibold mr-1.5">&lambda;</span>
+                                    <div className="mb-4 p-2.5 rounded-md bg-bg-alt border border-border font-mono text-xs text-text-muted">
+                                        <span className="text-accent font-medium mr-1.5">&lambda;</span>
                                         {project.architecture}
                                     </div>
                                 )}
@@ -108,9 +108,9 @@ const Projects = () => {
                                 <div className="space-y-1.5 mb-6 text-xs">
                                     {project.frontendTech.length > 0 && (
                                         <div className="flex flex-wrap items-center gap-1.5">
-                                            <span className="text-[10px] font-mono uppercase text-text-muted w-14">Client:</span>
+                                            <span className="text-[0.75rem] font-mono uppercase tracking-[0.08em] text-text-muted w-16">Client:</span>
                                             {project.frontendTech.map(t => (
-                                                <span key={t} className="px-2 py-0.5 rounded bg-bg-alt border border-border text-text font-mono text-[11px]">
+                                                <span key={t} className="px-2 py-0.5 rounded bg-bg-alt border border-border text-text font-mono text-xs">
                                                     {t}
                                                 </span>
                                             ))}
@@ -119,9 +119,9 @@ const Projects = () => {
 
                                     {project.backendTech.length > 0 && (
                                         <div className="flex flex-wrap items-center gap-1.5">
-                                            <span className="text-[10px] font-mono uppercase text-text-muted w-14">Server:</span>
+                                            <span className="text-[0.75rem] font-mono uppercase tracking-[0.08em] text-text-muted w-16">Server:</span>
                                             {project.backendTech.map(t => (
-                                                <span key={t} className="px-2 py-0.5 rounded bg-bg-alt border border-border text-text font-mono text-[11px]">
+                                                <span key={t} className="px-2 py-0.5 rounded bg-bg-alt border border-border text-text font-mono text-xs">
                                                     {t}
                                                 </span>
                                             ))}
@@ -130,9 +130,9 @@ const Projects = () => {
 
                                     {project.databaseTech.length > 0 && (
                                         <div className="flex flex-wrap items-center gap-1.5">
-                                            <span className="text-[10px] font-mono uppercase text-text-muted w-14">Data:</span>
+                                            <span className="text-[0.75rem] font-mono uppercase tracking-[0.08em] text-text-muted w-16">Data:</span>
                                             {project.databaseTech.map(t => (
-                                                <span key={t} className="px-2 py-0.5 rounded bg-bg-alt border border-border text-text font-mono text-[11px]">
+                                                <span key={t} className="px-2 py-0.5 rounded bg-bg-alt border border-border text-text font-mono text-xs">
                                                     {t}
                                                 </span>
                                             ))}
@@ -179,8 +179,8 @@ const Projects = () => {
                     <div className="inline-flex p-2 rounded-md bg-bg-alt border border-border text-accent mb-2">
                         <Code2 size={16} />
                     </div>
-                    <h4 className="text-sm font-bold text-text mb-1">More Projects Coming Soon</h4>
-                    <p className="text-text-muted text-xs leading-relaxed">
+                    <h4 className="text-sm font-medium text-text mb-1">More Projects Coming Soon</h4>
+                    <p className="text-text-muted text-xs leading-[1.7]">
                         Currently engineering new fullstack web systems and AI integrations. Source repositories will be published here.
                     </p>
                 </div>

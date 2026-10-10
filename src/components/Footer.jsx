@@ -9,7 +9,7 @@ const Footer = () => {
                 {/* Logo */}
                 <a
                     href="#"
-                    className="text-lg font-bold tracking-tight text-text font-display hover:text-accent transition-colors"
+                    className="text-lg font-semibold tracking-tight text-text hover:text-accent transition-colors"
                 >
                     AJ<span className="text-accent">.</span>
                 </a>
@@ -39,7 +39,7 @@ const Footer = () => {
                     <p className="text-text-muted text-xs font-medium">
                         Designed & Built by Amey Jadhav
                     </p>
-                    <p className="text-text-muted/60 text-[11px] font-mono">
+                    <p className="text-text-muted/70 font-mono text-[0.75rem] font-medium">
                         &copy; {currentYear} • Pune, India
                     </p>
                 </div>

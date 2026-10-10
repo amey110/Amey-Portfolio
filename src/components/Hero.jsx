@@ -179,38 +179,38 @@ const Hero = () => {
                     {/* Left Column: Editorial Intro */}
                     <div className="lg:col-span-7 flex flex-col items-start text-left">
                         {/* Status Badge */}
-                        <div className="mb-6 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-card text-xs font-medium text-text-muted">
+                        <div className="mb-6 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-card font-mono text-[0.75rem] uppercase tracking-[0.08em] font-medium text-text-muted">
                             <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse" />
                             Available for Opportunities
                         </div>
 
                         {/* Title */}
-                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-4 text-text font-display">
+                        <h1 className="text-h1 mb-4 text-text">
                             Amey Jadhav
                         </h1>
 
                         {/* Role Pills */}
                         <div className="flex flex-wrap items-center gap-2 mb-5">
-                            <span className="px-2.5 py-1 text-xs font-semibold rounded-md border border-accent/30 bg-accent/10 text-accent">
+                            <span className="px-2.5 py-1 font-mono text-[0.75rem] uppercase tracking-[0.08em] font-medium rounded-md border border-accent/30 bg-accent/10 text-accent">
                                 Fullstack Developer
                             </span>
-                            <span className="px-2.5 py-1 text-xs font-medium rounded-md border border-border bg-bg-alt text-text-muted">
+                            <span className="px-2.5 py-1 font-mono text-[0.75rem] uppercase tracking-[0.08em] font-medium rounded-md border border-border bg-bg-alt text-text-muted">
                                 B.E. in AI & ML (2026)
                             </span>
                         </div>
 
                         {/* Typewriter Pipeline */}
-                        <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-6 rounded-md border border-border bg-card font-mono text-xs text-text-muted">
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-6 rounded-md border border-border bg-card font-mono text-[0.75rem] tracking-[0.08em] font-medium text-text-muted">
                             <Terminal size={13} className="text-accent" />
-                            <span className="text-text-muted">pipeline:</span>
-                            <span className="font-semibold text-text min-w-[110px] text-left">
+                            <span className="text-text-muted uppercase">pipeline:</span>
+                            <span className="font-medium text-text min-w-[110px] text-left">
                                 {displayedText}
                                 <span className="inline-block w-1.5 h-3 ml-0.5 bg-accent animate-pulse align-middle" />
                             </span>
                         </div>
 
                         {/* Description */}
-                        <p className="text-base md:text-lg text-text-muted leading-relaxed mb-8 max-w-xl">
+                        <p className="text-base text-text-muted leading-[1.7] mb-8 max-w-[65ch]">
                             I build complete web applications, from responsive React interfaces to APIs and databases.
                         </p>
 
@@ -246,11 +246,11 @@ const Hero = () => {
 
                         {/* Tech Badges */}
                         <div className="flex flex-wrap items-center gap-1.5">
-                            <span className="text-xs font-medium text-text-muted mr-1.5">Stack:</span>
+                            <span className="font-mono text-[0.75rem] uppercase tracking-[0.08em] font-medium text-text-muted mr-1.5">Stack:</span>
                             {TECH_BADGES.map((name) => (
                                 <span
                                     key={name}
-                                    className="px-2.5 py-1 text-xs font-medium rounded-md bg-card border border-border text-text-muted hover:text-text hover:border-accent transition-colors duration-150"
+                                    className="px-2.5 py-1 font-mono text-[0.75rem] font-medium rounded-md bg-card border border-border text-text-muted hover:text-text hover:border-accent transition-colors duration-150"
                                 >
                                     {name}
                                 </span>

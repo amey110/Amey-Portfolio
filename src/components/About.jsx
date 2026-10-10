@@ -7,10 +7,10 @@ const About = () => {
             <div className="max-w-6xl mx-auto px-6">
                 {/* Section Header */}
                 <div className="section-header">
-                    <p className="text-accent font-mono text-xs uppercase tracking-wider mb-2">
+                    <p className="text-accent font-mono text-[0.75rem] uppercase tracking-[0.08em] font-medium mb-2">
                         01 / About
                     </p>
-                    <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-text font-display">
+                    <h2 className="text-h2 mb-3 text-text">
                         Get to know me
                     </h2>
                 </div>
@@ -20,15 +20,15 @@ const About = () => {
                     {/* Text Content */}
                     <div className="lg:col-span-7 space-y-6">
                         <div className="space-y-1">
-                            <h3 className="text-2xl font-bold tracking-tight text-text font-display">
+                            <h3 className="text-h3 text-text">
                                 Amey Jadhav
                             </h3>
-                            <p className="text-accent font-medium text-sm md:text-base">
+                            <p className="text-accent font-medium text-sm">
                                 Fullstack Developer • B.E. in AI & ML (2026)
                             </p>
                         </div>
                         
-                        <div className="space-y-4 text-text-muted text-base leading-relaxed">
+                        <div className="space-y-4 text-text-muted text-base leading-[1.7] max-w-[65ch]">
                             <p>
                                 I am pursuing a Bachelor of Engineering in Artificial Intelligence & Machine Learning (graduating 2026) in Pune, India. As a fullstack developer, I focus on building complete, responsive web applications from user interfaces down to backend APIs and database schemas.
                             </p>
@@ -71,8 +71,8 @@ const About = () => {
                                     <item.icon size={18} />
                                 </div>
                                 <div className="space-y-1 min-w-0">
-                                    <h4 className="text-sm font-semibold text-text">{item.title}</h4>
-                                    <p className="text-text-muted text-xs leading-relaxed">{item.desc}</p>
+                                    <h4 className="text-sm font-medium text-text">{item.title}</h4>
+                                    <p className="text-text-muted text-xs leading-[1.6]">{item.desc}</p>
                                 </div>
                             </div>
                         ))}

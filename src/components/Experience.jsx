@@ -29,13 +29,13 @@ const Experience = () => {
             <div className="max-w-6xl mx-auto px-6">
                 {/* Header */}
                 <div className="section-header">
-                    <p className="text-accent font-mono text-xs uppercase tracking-wider mb-2">
+                    <p className="text-accent font-mono text-[0.75rem] uppercase tracking-[0.08em] font-medium mb-2">
                         04 / Experience
                     </p>
-                    <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-text font-display mb-3">
+                    <h2 className="text-h2 mb-3 text-text">
                         Experience & Education
                     </h2>
-                    <p className="text-text-muted text-sm md:text-base max-w-2xl leading-relaxed">
+                    <p className="text-text-muted text-base leading-[1.7] max-w-[65ch]">
                         My academic background in AI & ML alongside practical fullstack development experience.
                     </p>
                 </div>
@@ -55,24 +55,24 @@ const Experience = () => {
                                             <IconComponent size={16} />
                                         </div>
                                         <div>
-                                            <h3 className="text-base font-bold text-text font-display">{item.role}</h3>
-                                            <p className="text-xs text-text-muted font-medium">
+                                            <h3 className="text-base font-medium text-text">{item.role}</h3>
+                                            <p className="text-xs text-text-muted font-normal">
                                                 {item.organization} • {item.location}
                                             </p>
                                         </div>
                                     </div>
 
                                     <div className="flex items-center gap-2 self-start sm:self-auto">
-                                        <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-bg-alt border border-border text-text-muted">
+                                        <span className="font-mono text-[0.75rem] tracking-[0.08em] uppercase px-2 py-0.5 rounded bg-bg-alt border border-border text-text-muted font-medium">
                                             {item.tag}
                                         </span>
-                                        <span className="text-xs font-mono text-accent">
+                                        <span className="font-mono text-xs text-accent font-medium">
                                             {item.period}
                                         </span>
                                     </div>
                                 </div>
 
-                                <p className="text-text-muted text-xs sm:text-sm leading-relaxed mb-4 pl-0 sm:pl-11">
+                                <p className="text-text-muted text-sm leading-[1.7] mb-4 pl-0 sm:pl-11 max-w-[65ch]">
                                     {item.description}
                                 </p>
 
@@ -80,7 +80,7 @@ const Experience = () => {
                                     {item.highlights.map((tech) => (
                                         <span
                                             key={tech}
-                                            className="px-2 py-0.5 text-[11px] font-mono rounded bg-bg-alt border border-border text-text-muted"
+                                            className="px-2 py-0.5 text-xs font-mono rounded bg-bg-alt border border-border text-text-muted"
                                         >
                                             {tech}
                                         </span>
