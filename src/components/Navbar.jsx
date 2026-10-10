@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import { Github, Linkedin, Menu, X, Download } from 'lucide-react'
+import { Github, Linkedin, Menu, X, Download, Sun, Moon } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
 const navLinks = [
@@ -14,6 +14,23 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false)
     const [scrolled, setScrolled] = useState(false)
     const [activeSection, setActiveSection] = useState('home')
+    const [isDark, setIsDark] = useState(false)
+
+    useEffect(() => {
+        setIsDark(document.documentElement.classList.contains('dark'))
+    }, [])
+
+    const toggleTheme = () => {
+        const nextDark = !document.documentElement.classList.contains('dark')
+        if (nextDark) {
+            document.documentElement.classList.add('dark')
+            localStorage.setItem('theme', 'dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+            localStorage.setItem('theme', 'light')
+        }
+        setIsDark(nextDark)
+    }
 
     useEffect(() => {
         const handleScroll = () => {
@@ -65,106 +82,102 @@ const Navbar = () => {
     }, [isOpen])
 
     return (
-        <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-            scrolled ? 'py-3' : 'py-4'
+        <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-200 ${
+            scrolled ? 'py-3 bg-bg/95 border-b border-border' : 'py-4 bg-transparent'
         }`}>
-            <div className={`max-w-5xl mx-auto flex items-center justify-between px-5 py-3 rounded-2xl mx-4 sm:mx-6 lg:mx-auto transition-all duration-500 ${
-                scrolled 
-                ? 'bg-white/80 backdrop-blur-xl border border-border-subtle shadow-nav' 
-                : 'bg-transparent border border-transparent'
-            }`}>
+            <div className="max-w-5xl mx-auto flex items-center justify-between px-6">
                 {/* Logo */}
-                <motion.a
+                <a
                     href="#"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    className="text-xl font-extrabold tracking-tight text-foreground hover:text-primary transition-colors duration-300"
+                    className="text-xl font-bold tracking-tight text-text hover:text-accent font-display transition-colors"
                 >
-                    AJ<span className="text-primary">.</span>
-                </motion.a>
+                    AJ<span className="text-accent">.</span>
+                </a>
 
-                {/* Desktop Nav */}
+                {/* Desktop Nav Links */}
                 <div className="hidden md:flex items-center gap-1">
-                    {navLinks.map((link, i) => {
+                    {navLinks.map((link) => {
                         const targetId = link.href === '#' ? 'home' : link.href.slice(1)
                         const isActive = activeSection === targetId
 
                         return (
-                            <motion.a
+                            <a
                                 key={link.name}
                                 href={link.href}
-                                initial={{ opacity: 0, y: -10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: i * 0.06, duration: 0.4 }}
-                                className={`relative text-[13px] font-semibold transition-all duration-300 py-2 px-3.5 rounded-lg ${
+                                className={`text-[13px] font-medium transition-colors duration-150 py-1.5 px-3 rounded-md ${
                                     isActive 
-                                    ? 'text-primary bg-blue-50' 
-                                    : 'text-foreground-secondary hover:text-foreground hover:bg-slate-50'
+                                    ? 'text-accent font-semibold' 
+                                    : 'text-text-muted hover:text-text'
                                 }`}
                             >
-                                <span className="relative z-10">{link.name}</span>
-                                {isActive && (
-                                    <motion.span
-                                        layoutId="activeNav"
-                                        className="absolute inset-0 bg-blue-50 rounded-lg"
-                                        style={{ zIndex: 0 }}
-                                        transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                                    />
-                                )}
-                            </motion.a>
+                                {link.name}
+                            </a>
                         )
                     })}
                 </div>
 
-                {/* Right side: Resume + Socials */}
-                <div className="hidden md:flex items-center gap-3">
-                    <motion.a
+                {/* Right side: Theme Toggle + Resume + Socials */}
+                <div className="hidden md:flex items-center gap-2">
+                    {/* Theme Toggle Button */}
+                    <button
+                        type="button"
+                        onClick={toggleTheme}
+                        aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
+                        className="p-2 rounded-md border border-border text-text hover:text-accent hover:border-accent transition-colors duration-150"
+                    >
+                        {isDark ? <Sun size={16} /> : <Moon size={16} />}
+                    </button>
+
+                    <a
                         href="https://github.com/amey110"
                         target="_blank"
                         rel="noopener noreferrer"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="text-foreground-secondary hover:text-foreground p-2 rounded-lg hover:bg-slate-50 transition-all duration-300"
+                        className="text-text-muted hover:text-text p-2 rounded-md transition-colors duration-150"
                         aria-label="GitHub"
                     >
-                        <Github size={17} />
-                    </motion.a>
-                    <motion.a
+                        <Github size={16} />
+                    </a>
+                    <a
                         href="https://www.linkedin.com/in/amey-jadhav-6a677b28a/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="text-foreground-secondary hover:text-foreground p-2 rounded-lg hover:bg-slate-50 transition-all duration-300"
+                        className="text-text-muted hover:text-text p-2 rounded-md transition-colors duration-150"
                         aria-label="LinkedIn"
                     >
-                        <Linkedin size={17} />
-                    </motion.a>
-                    <motion.a
+                        <Linkedin size={16} />
+                    </a>
+                    <a
                         href="/resume/Amey_Jadhav_Resume.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                         download
-                        whileHover={{ scale: 1.03 }}
-                        whileTap={{ scale: 0.98 }}
-                        className="ml-1 px-4 py-2 bg-foreground text-white rounded-lg text-[13px] font-semibold flex items-center gap-2 hover:bg-slate-800 transition-all duration-300 shadow-button"
+                        className="ml-1 px-3.5 py-1.5 bg-text text-bg rounded-md text-[13px] font-medium flex items-center gap-2 hover:opacity-90 transition-opacity duration-150"
                     >
-                        <Download size={14} />
+                        <Download size={13} />
                         Resume
-                    </motion.a>
+                    </a>
                 </div>
 
-                {/* Mobile Menu Button */}
-                <div className="md:hidden">
+                {/* Mobile Right Controls: Theme Toggle + Hamburger */}
+                <div className="md:hidden flex items-center gap-2">
+                    <button
+                        type="button"
+                        onClick={toggleTheme}
+                        aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
+                        className="p-2 rounded-md border border-border text-text hover:text-accent transition-colors"
+                    >
+                        {isDark ? <Sun size={17} /> : <Moon size={17} />}
+                    </button>
+
                     <button 
                         onClick={(e) => {
                             e.stopPropagation()
                             setIsOpen(!isOpen)
                         }}
                         aria-label="Toggle mobile menu"
-                        className="text-foreground p-2 rounded-lg hover:bg-slate-50 transition-colors focus:outline-none"
+                        className="text-text p-2 rounded-md border border-border hover:bg-bg-alt transition-colors focus:outline-none"
                     >
-                        {isOpen ? <X size={20} /> : <Menu size={20} />}
+                        {isOpen ? <X size={18} /> : <Menu size={18} />}
                     </button>
                 </div>
             </div>
@@ -173,12 +186,12 @@ const Navbar = () => {
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: -8, scale: 0.98 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: -8, scale: 0.98 }}
-                        transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                        initial={{ opacity: 0, y: -6 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -6 }}
+                        transition={{ duration: 0.15 }}
                         onClick={(e) => e.stopPropagation()}
-                        className="md:hidden absolute top-full left-4 right-4 mt-2 bg-white/95 backdrop-blur-xl p-4 rounded-2xl flex flex-col gap-1 shadow-card-hover border border-border-subtle z-50"
+                        className="md:hidden absolute top-full left-4 right-4 mt-2 bg-bg border border-border p-4 rounded-xl flex flex-col gap-1 shadow-subtle z-50"
                     >
                         {navLinks.map((link) => {
                             const targetId = link.href === '#' ? 'home' : link.href.slice(1)
@@ -189,10 +202,10 @@ const Navbar = () => {
                                     key={link.name}
                                     href={link.href}
                                     onClick={() => setIsOpen(false)}
-                                    className={`text-sm font-semibold py-2.5 px-4 rounded-xl transition-all duration-300 ${
+                                    className={`text-sm font-medium py-2 px-3 rounded-md transition-colors duration-150 ${
                                         isActive 
-                                        ? 'text-primary bg-blue-50 font-bold' 
-                                        : 'text-foreground-secondary hover:text-foreground hover:bg-slate-50'
+                                        ? 'text-accent font-semibold bg-bg-alt' 
+                                        : 'text-text-muted hover:text-text'
                                     }`}
                                 >
                                     {link.name}
@@ -200,17 +213,38 @@ const Navbar = () => {
                             )
                         })}
                         
-                        {/* Mobile Resume Button */}
-                        <div className="pt-2 mt-1 border-t border-border-subtle">
+                        {/* Mobile Resume & Social Links */}
+                        <div className="pt-3 mt-2 border-t border-border flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                                <a
+                                    href="https://github.com/amey110"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="p-2 text-text-muted hover:text-text"
+                                    aria-label="GitHub"
+                                >
+                                    <Github size={16} />
+                                </a>
+                                <a
+                                    href="https://www.linkedin.com/in/amey-jadhav-6a677b28a/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="p-2 text-text-muted hover:text-text"
+                                    aria-label="LinkedIn"
+                                >
+                                    <Linkedin size={16} />
+                                </a>
+                            </div>
+
                             <a
                                 href="/resume/Amey_Jadhav_Resume.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 download
-                                className="flex items-center justify-center gap-2 py-2.5 px-4 bg-foreground text-white rounded-xl text-sm font-semibold hover:bg-slate-800 transition-all"
+                                className="flex items-center gap-1.5 py-1.5 px-3 bg-text text-bg rounded-md text-xs font-medium hover:opacity-90 transition-opacity"
                             >
-                                <Download size={15} />
-                                Download Resume
+                                <Download size={13} />
+                                Resume
                             </a>
                         </div>
                     </motion.div>

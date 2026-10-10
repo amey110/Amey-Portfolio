@@ -1,183 +1,189 @@
-import { motion } from 'framer-motion'
-import { Github, ExternalLink, Rocket } from 'lucide-react'
+import { Github, ExternalLink, Code2 } from 'lucide-react'
 import aiCodeReviewerImg from '../assets/ai-code-reviewer.png'
 import personalPortfolioImg from '../assets/personal-portfolio.png'
 
 const projects = [
-   {
-  title: "AI Code Reviewer",
-  desc: "An AI-powered code review platform that analyzes source code and provides intelligent feedback.",
-  tech: ["React", "FastAPI", "Python", "JavaScript", "Git"],
-  github: "https://github.com/amey110/CodePilot-AI",
-  demo: "https://code-pilot-ai-beta.vercel.app/",
-  image: aiCodeReviewerImg,
-},
+    {
+        title: "AI Code Reviewer",
+        desc: "An AI-powered fullstack code review platform that analyzes source code, detecting bugs and security issues with automated feedback.",
+        badge: "Fullstack",
+        architecture: "React Client → FastAPI REST API → Analysis Engine",
+        frontendTech: ["React", "JavaScript"],
+        backendTech: ["FastAPI", "Python"],
+        databaseTech: [],
+        github: "https://github.com/amey110/CodePilot-AI",
+        demo: "https://code-pilot-ai-beta.vercel.app/",
+        image: aiCodeReviewerImg,
+        hidden: false,
+    },
     {
         title: "Personal Portfolio",
-        desc: "A modern responsive portfolio showcasing my projects, technical skills and developer journey.",
-        tech: ["React", "Tailwind CSS", "Vite", "Framer Motion"],
+        desc: "A clean editorial developer portfolio showcasing fullstack applications, technical skill matrix, and interactive fullstack architecture flows.",
+        badge: "Frontend",
+        architecture: "React Client → Tailwind CSS → Vercel Edge",
+        frontendTech: ["React", "Tailwind CSS", "Vite", "Framer Motion"],
+        backendTech: [],
+        databaseTech: [],
         github: "https://github.com/amey110/Amey-Portfolio",
-        demo: "#",
+        demo: "https://amey-portfolio-murex.vercel.app/",
         image: personalPortfolioImg,
+        hidden: false,
+    },
+    // Future Project Slot (set hidden: false when ready)
+    {
+        title: "Fullstack Project Slot",
+        desc: "Next fullstack application in development.",
+        badge: "Fullstack",
+        architecture: "React → Node.js / FastAPI → MongoDB / MySQL",
+        frontendTech: ["React"],
+        backendTech: ["Node.js"],
+        databaseTech: ["MongoDB"],
+        github: "https://github.com/amey110",
+        demo: "",
+        image: "",
+        hidden: true,
     }
 ]
 
-const fadeInUp = {
-    initial: { opacity: 0, y: 24 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, margin: "-60px" },
-}
-
 const Projects = () => {
+    const visibleProjects = projects.filter(p => !p.hidden)
+
     return (
-        <section id="projects" className="scroll-mt-32 py-24 md:py-32 px-6">
-            <div className="max-w-6xl mx-auto">
+        <section id="projects" className="scroll-mt-24 py-20 md:py-28 bg-bg-alt border-y border-border transition-colors duration-200">
+            <div className="max-w-6xl mx-auto px-6">
                 {/* Header */}
                 <div className="section-header">
-                    <motion.p
-                        {...fadeInUp}
-                        transition={{ duration: 0.5 }}
-                        className="text-primary font-semibold text-sm tracking-wide uppercase mb-3"
-                    >
-                        Projects
-                    </motion.p>
-                    <motion.h2
-                        {...fadeInUp}
-                        transition={{ duration: 0.6, delay: 0.05 }}
-                        className="text-3xl md:text-section font-bold tracking-tight text-foreground mb-4"
-                    >
+                    <p className="text-accent font-mono text-xs uppercase tracking-wider mb-2">
+                        03 / Projects
+                    </p>
+                    <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-text font-display mb-3">
                         Featured Projects
-                    </motion.h2>
-                    <motion.div
-                        initial={{ opacity: 0, scaleX: 0 }}
-                        whileInView={{ opacity: 1, scaleX: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.15, duration: 0.5 }}
-                        className="h-1 w-16 bg-primary rounded-full mb-6"
-                    />
-                    <motion.p
-                        {...fadeInUp}
-                        transition={{ delay: 0.2, duration: 0.6 }}
-                        className="max-w-2xl text-foreground-secondary text-base leading-relaxed"
-                    >
-                        Real-world projects that showcase my frontend development skills and continuous learning journey.
-                    </motion.p>
+                    </h2>
+                    <p className="text-text-muted text-sm md:text-base max-w-2xl leading-relaxed">
+                        Fullstack web applications and software built from the ground up, highlighting end-to-end architecture and clean execution.
+                    </p>
                 </div>
 
                 {/* Projects Grid */}
-                <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-                    {projects.map((project, i) => (
-                        <motion.div
+                <div className="grid md:grid-cols-2 gap-6 max-w-5xl">
+                    {visibleProjects.map((project) => (
+                        <div
                             key={project.title}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: i * 0.1, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                            className="group relative bg-white rounded-3xl border border-border-subtle overflow-hidden transition-all duration-500 hover:shadow-card-hover hover:border-slate-300 hover:-translate-y-1"
+                            className="bg-card border border-border rounded-xl overflow-hidden flex flex-col hover:border-accent transition-colors duration-150"
                         >
-                            {/* Project Image */}
-                            <div className="relative h-52 md:h-56 overflow-hidden">
+                            {/* Project Preview */}
+                            <div className="relative h-48 md:h-52 bg-bg-alt border-b border-border overflow-hidden">
                                 <img
                                     src={project.image}
                                     alt={project.title}
                                     loading="lazy"
-                                    className="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+                                    className="w-full h-full object-cover object-top"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent opacity-60" />
-                                
-                                {/* Badge */}
                                 {project.badge && (
-                                    <span className="absolute top-4 right-4 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider bg-amber-50 text-amber-700 rounded-lg border border-amber-200 flex items-center gap-1.5">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+                                    <span className="absolute top-3 right-3 px-2 py-0.5 text-[11px] font-mono font-semibold rounded bg-card/95 border border-border text-accent">
                                         {project.badge}
                                     </span>
                                 )}
                             </div>
 
                             {/* Card Body */}
-                            <div className="p-6 flex flex-col">
-                                <h3 className="text-xl font-bold mb-2.5 text-foreground group-hover:text-primary transition-colors duration-300">
+                            <div className="p-6 flex flex-col flex-1">
+                                <h3 className="text-lg font-bold mb-2 text-text font-display">
                                     {project.title}
                                 </h3>
                                 
-                                <p className="text-foreground-secondary text-sm leading-relaxed mb-5">
+                                <p className="text-text-muted text-xs sm:text-sm leading-relaxed mb-4">
                                     {project.desc}
                                 </p>
 
-                                {/* Tech Stack */}
-                                <div className="flex flex-wrap gap-1.5 mb-6">
-                                    {project.tech.map(t => (
-                                        <span 
-                                            key={t} 
-                                            className="px-2.5 py-1 text-xs font-semibold bg-slate-50 text-foreground-secondary rounded-md border border-border-subtle"
-                                        >
-                                            {t}
-                                        </span>
-                                    ))}
+                                {/* Architecture Flow */}
+                                {project.architecture && (
+                                    <div className="mb-4 p-2.5 rounded-md bg-bg-alt border border-border font-mono text-[11px] text-text-muted">
+                                        <span className="text-accent font-semibold mr-1.5">&lambda;</span>
+                                        {project.architecture}
+                                    </div>
+                                )}
+
+                                {/* Categorized Tech Tags */}
+                                <div className="space-y-1.5 mb-6 text-xs">
+                                    {project.frontendTech.length > 0 && (
+                                        <div className="flex flex-wrap items-center gap-1.5">
+                                            <span className="text-[10px] font-mono uppercase text-text-muted w-14">Client:</span>
+                                            {project.frontendTech.map(t => (
+                                                <span key={t} className="px-2 py-0.5 rounded bg-bg-alt border border-border text-text font-mono text-[11px]">
+                                                    {t}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    )}
+
+                                    {project.backendTech.length > 0 && (
+                                        <div className="flex flex-wrap items-center gap-1.5">
+                                            <span className="text-[10px] font-mono uppercase text-text-muted w-14">Server:</span>
+                                            {project.backendTech.map(t => (
+                                                <span key={t} className="px-2 py-0.5 rounded bg-bg-alt border border-border text-text font-mono text-[11px]">
+                                                    {t}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    )}
+
+                                    {project.databaseTech.length > 0 && (
+                                        <div className="flex flex-wrap items-center gap-1.5">
+                                            <span className="text-[10px] font-mono uppercase text-text-muted w-14">Data:</span>
+                                            {project.databaseTech.map(t => (
+                                                <span key={t} className="px-2 py-0.5 rounded bg-bg-alt border border-border text-text font-mono text-[11px]">
+                                                    {t}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    )}
                                 </div>
 
-                                {/* Action Buttons */}
-                                <div className="flex items-center gap-3 mt-auto">
-                                    <motion.a
+                                {/* Action Links */}
+                                <div className="flex items-center gap-2 mt-auto pt-3 border-t border-border">
+                                    <a
                                         href={project.github}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        whileHover={{ y: -2 }}
-                                        whileTap={{ scale: 0.98 }}
-                                        className="flex-1 px-4 py-2.5 bg-foreground hover:bg-slate-800 text-white rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-all duration-300 shadow-button"
+                                        className="flex-1 px-3 py-2 bg-card border border-border hover:border-accent text-text rounded-md text-xs font-medium flex items-center justify-center gap-1.5 transition-colors"
                                     >
-                                        <Github size={15} />
-                                        GitHub
-                                    </motion.a>
+                                        <Github size={14} />
+                                        Source Code
+                                    </a>
 
-                                    {project.demo ? (
-                                        <motion.a
+                                    {project.demo && project.demo !== '#' ? (
+                                        <a
                                             href={project.demo}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            whileHover={{ y: -2 }}
-                                            whileTap={{ scale: 0.98 }}
-                                            className="flex-1 px-4 py-2.5 bg-white border border-border-subtle hover:bg-slate-50 hover:border-slate-300 text-foreground rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-all duration-300"
+                                            className="flex-1 px-3 py-2 bg-accent hover:bg-accent-hover text-white rounded-md text-xs font-medium flex items-center justify-center gap-1.5 transition-colors"
                                         >
                                             Live Demo
-                                            <ExternalLink size={14} />
-                                        </motion.a>
+                                            <ExternalLink size={13} />
+                                        </a>
                                     ) : (
-                                        <span className="flex-1 px-4 py-2.5 bg-slate-50 text-foreground-secondary border border-border-subtle rounded-xl text-sm font-semibold flex items-center justify-center gap-2 cursor-not-allowed opacity-60">
+                                        <span className="flex-1 px-3 py-2 bg-bg-alt border border-border text-text-muted rounded-md text-xs font-medium flex items-center justify-center gap-1.5 cursor-not-allowed opacity-60">
                                             Live Demo
-                                            <ExternalLink size={14} />      
+                                            <ExternalLink size={13} />
                                         </span>
                                     )}
                                 </div>
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
 
-                {/* More Projects Coming Soon */}
-                <motion.div
-                    initial={{ opacity: 0, y: 24 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.2, duration: 0.7 }}
-                    className="max-w-xl mx-auto mt-14 premium-card text-center !p-8"
-                >
-                    <div className="flex justify-center mb-4">
-                        <motion.div
-                            animate={{ y: [0, -6, 0] }}
-                            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                            className="p-3 rounded-xl bg-blue-50 text-primary border border-blue-100"
-                        >
-                            <Rocket size={22} />
-                        </motion.div>
+                {/* More Projects Coming Soon Note */}
+                <div className="max-w-md mx-auto mt-12 bg-card border border-border rounded-xl p-5 text-center">
+                    <div className="inline-flex p-2 rounded-md bg-bg-alt border border-border text-accent mb-2">
+                        <Code2 size={16} />
                     </div>
-                    <h3 className="text-lg font-bold mb-2 text-foreground">
-                        More Projects Coming Soon
-                    </h3>
-                    <p className="text-foreground-secondary text-sm leading-relaxed max-w-md mx-auto">
-                        I continuously build new projects to strengthen my frontend and AI development skills. Stay tuned for more.
+                    <h4 className="text-sm font-bold text-text mb-1">More Projects Coming Soon</h4>
+                    <p className="text-text-muted text-xs leading-relaxed">
+                        Currently engineering new fullstack web systems and AI integrations. Source repositories will be published here.
                     </p>
-                </motion.div>
+                </div>
             </div>
         </section>
     )

@@ -1,184 +1,122 @@
 import { motion } from 'framer-motion'
-import { Laptop, Code, Database, Terminal, Sparkles } from 'lucide-react'
+import { Laptop, Server, Database, Terminal, ArrowRight } from 'lucide-react'
 
-const categories = [
+const skillGroups = [
     {
         title: "Frontend",
         icon: Laptop,
-        color: "text-blue-600",
-        bgColor: "bg-blue-50",
-        skills: [
-            { name: "React.js" },
-            { name: "JavaScript" },
-            { name: "HTML5" },
-            { name: "CSS3" },
-            { name: "Tailwind CSS" },
-            { name: "Bootstrap" },
-        ]
-    },
-    {
-        title: "Programming",
-        icon: Code,
-        color: "text-indigo-600",
-        bgColor: "bg-indigo-50",
-        skills: [
-            { name: "Python" },
-            { name: "SQL" },
-        ]
+        skills: ["React.js", "JavaScript", "HTML5", "CSS3", "Tailwind CSS", "Bootstrap"]
     },
     {
         title: "Backend",
-        subtitle: "Learning",
-        icon: Database,
-        color: "text-emerald-600",
-        bgColor: "bg-emerald-50",
-        skills: [
-            { name: "FastAPI", badge: "Learning" },
-            { name: "Node.js", badge: "Learning" },
-            { name: "PHP", badge: "Learning" },
-        ]
+        icon: Server,
+        skills: ["FastAPI", "Node.js", "Python"]
     },
     {
         title: "Database",
         icon: Database,
-        color: "text-orange-600",
-        bgColor: "bg-orange-50",
-        skills: [
-            { name: "MySQL" },
-            { name: "MongoDB" },
-        ]
+        skills: ["MySQL", "MongoDB", "SQL"]
     },
     {
-        title: "Tools",
+        title: "Tools & Deployment",
         icon: Terminal,
-        color: "text-slate-600",
-        bgColor: "bg-slate-100",
-        skills: [
-            { name: "Git" },
-            { name: "GitHub" },
-            { name: "VS Code" },
-            { name: "Postman" },
-            { name: "Vercel" },
-        ]
+        skills: ["Git", "GitHub", "VS Code", "Postman", "Vercel"]
     },
 ]
 
-const fadeInUp = {
-    initial: { opacity: 0, y: 24 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, margin: "-60px" },
-}
+const requestFlowSteps = [
+    { label: "Browser", sub: "React Client", tag: "UI Layer" },
+    { label: "API Service", sub: "FastAPI / Node.js", tag: "REST Endpoints" },
+    { label: "Database", sub: "MySQL / MongoDB", tag: "Persistence" },
+    { label: "Response", sub: "JSON Payload", tag: "Client Render" },
+]
 
 const Skills = () => {
     return (
-        <section id="skills" className="scroll-mt-32 py-24 md:py-32 px-6 bg-background-secondary">
-            <div className="max-w-6xl mx-auto">
+        <section id="skills" className="scroll-mt-24 py-20 md:py-28 bg-bg transition-colors duration-200">
+            <div className="max-w-6xl mx-auto px-6">
                 {/* Header */}
                 <div className="section-header">
-                    <motion.p
-                        {...fadeInUp}
-                        transition={{ duration: 0.5 }}
-                        className="text-primary font-semibold text-sm tracking-wide uppercase mb-3"
-                    >
-                        Technical Skills
-                    </motion.p>
-                    <motion.h2
-                        {...fadeInUp}
-                        transition={{ duration: 0.6, delay: 0.05 }}
-                        className="text-3xl md:text-section font-bold tracking-tight text-foreground mb-4"
-                    >
+                    <p className="text-accent font-mono text-xs uppercase tracking-wider mb-2">
+                        02 / Skills
+                    </p>
+                    <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-text font-display mb-3">
                         Technologies I work with
-                    </motion.h2>
-                    <motion.div
-                        initial={{ opacity: 0, scaleX: 0 }}
-                        whileInView={{ opacity: 1, scaleX: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.15, duration: 0.5 }}
-                        className="h-1 w-16 bg-primary rounded-full mb-6"
-                    />
-                    <motion.p
-                        {...fadeInUp}
-                        transition={{ delay: 0.2, duration: 0.6 }}
-                        className="max-w-2xl text-foreground-secondary text-base leading-relaxed"
-                    >
-                        Here are the technologies I use and the tools I'm actively learning through real-world projects.
-                    </motion.p>
+                    </h2>
+                    <p className="text-text-muted text-sm md:text-base max-w-2xl leading-relaxed">
+                        Technologies across the full stack used in building web applications, backend services, and databases.
+                    </p>
                 </div>
 
                 {/* Skills Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                    {categories.map((cat, i) => {
-                        const IconComponent = cat.icon
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+                    {skillGroups.map((group) => {
+                        const IconComponent = group.icon
                         return (
-                            <motion.div
-                                key={cat.title}
-                                initial={{ opacity: 0, y: 24 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, margin: "-40px" }}
-                                transition={{ delay: i * 0.08, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                                className="premium-card !p-6 flex flex-col"
+                            <div
+                                key={group.title}
+                                className="bg-card border border-border rounded-xl p-5 flex flex-col transition-colors hover:border-accent"
                             >
-                                {/* Category Header */}
-                                <div className="flex items-center gap-3 mb-5">
-                                    <div className={`p-2.5 rounded-xl ${cat.bgColor} ${cat.color} flex-shrink-0`}>
-                                        <IconComponent size={20} />
+                                {/* Header */}
+                                <div className="flex items-center gap-2.5 mb-4">
+                                    <div className="p-1.5 rounded-md bg-bg-alt border border-border text-accent">
+                                        <IconComponent size={16} />
                                     </div>
-                                    <div>
-                                        <h3 className="text-lg font-bold text-foreground leading-tight">{cat.title}</h3>
-                                        {cat.subtitle && (
-                                            <span className="text-xs font-semibold text-foreground-secondary">{cat.subtitle}</span>
-                                        )}
-                                    </div>
+                                    <h3 className="text-sm font-semibold text-text">{group.title}</h3>
                                 </div>
 
                                 {/* Skills Tags */}
-                                <div className="flex flex-wrap gap-2 mt-auto">
-                                    {cat.skills.map((skill) => (
-                                        <motion.span
-                                            key={skill.name}
-                                            whileHover={{ y: -2, borderColor: "#2563EB", color: "#2563EB" }}
-                                            transition={{ type: "spring", stiffness: 400, damping: 15 }}
-                                            className="px-3.5 py-1.5 text-sm bg-background-secondary border border-border-subtle rounded-lg text-foreground-secondary font-medium transition-all duration-300 cursor-default flex items-center gap-1.5"
+                                <div className="flex flex-wrap gap-1.5 mt-auto">
+                                    {group.skills.map((skill) => (
+                                        <span
+                                            key={skill}
+                                            className="px-2.5 py-1 text-xs font-medium rounded-md bg-bg-alt border border-border text-text-muted hover:text-text hover:border-accent transition-colors duration-150 cursor-default"
                                         >
-                                            {skill.name}
-                                            {skill.badge && (
-                                                <span className="text-[10px] font-bold uppercase px-1.5 py-0.5 rounded bg-blue-50 text-blue-600 border border-blue-100">
-                                                    {skill.badge}
-                                                </span>
-                                            )}
-                                        </motion.span>
+                                            {skill}
+                                        </span>
                                     ))}
                                 </div>
-                            </motion.div>
+                            </div>
                         )
                     })}
                 </div>
 
-                {/* Always Learning Banner */}
-                <motion.div
-                    initial={{ opacity: 0, y: 24 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.2, duration: 0.7 }}
-                    className="max-w-3xl mx-auto mt-12 premium-card !p-6 md:!p-8 bg-gradient-to-r from-blue-50/80 via-white to-indigo-50/50 border-blue-100/60"
-                >
-                    <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5">
-                        <div className="p-3.5 rounded-xl bg-blue-100 text-primary flex-shrink-0">
-                            <motion.div
-                                animate={{ rotate: [0, 8, -8, 0] }}
-                                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                            >
-                                <Sparkles size={24} />
-                            </motion.div>
+                {/* Request Flow Diagram */}
+                <div className="bg-card border border-border rounded-xl p-6 md:p-8">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
+                        <div>
+                            <span className="text-[11px] font-mono text-accent uppercase tracking-wider">Architecture</span>
+                            <h4 className="text-base font-bold text-text">Fullstack Request Flow</h4>
                         </div>
-                        <div className="space-y-1.5 text-center sm:text-left">
-                            <h4 className="text-lg font-bold text-foreground">Always Learning</h4>
-                            <p className="text-foreground-secondary text-sm leading-relaxed">
-                                I continuously improve my skills by building projects, exploring new technologies, and practicing every day. The best developers never stop learning.
-                            </p>
-                        </div>
+                        <p className="text-xs font-mono text-text-muted">Client &rarr; Server &rarr; DB &rarr; Client</p>
                     </div>
-                </motion.div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                        {requestFlowSteps.map((step, idx) => (
+                            <div
+                                key={step.label}
+                                className="relative bg-bg-alt border border-border rounded-lg p-4 flex flex-col justify-between"
+                            >
+                                <div className="flex items-center justify-between mb-2">
+                                    <span className="text-[11px] font-mono text-accent">0{idx + 1}</span>
+                                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-card border border-border text-text-muted">
+                                        {step.tag}
+                                    </span>
+                                </div>
+                                <div>
+                                    <h5 className="text-sm font-bold text-text">{step.label}</h5>
+                                    <p className="text-xs text-text-muted font-mono">{step.sub}</p>
+                                </div>
+                                {idx < requestFlowSteps.length - 1 && (
+                                    <div className="hidden lg:flex absolute -right-3 top-1/2 -translate-y-1/2 z-10 w-6 h-6 rounded-full bg-card border border-border items-center justify-center text-text-muted">
+                                        <ArrowRight size={12} />
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
             </div>
         </section>
     )

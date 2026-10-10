@@ -2,8 +2,23 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (saved === 'dark' || (!saved && prefersDark)) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#FAF8F4" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)" />
     <title>Amey Jadhav | Fullstack Developer (React, Node.js, FastAPI)</title>
     <meta name="description" content="Portfolio of Amey Jadhav — Fullstack Developer building complete web applications with React, Node.js, and FastAPI. B.E. in Artificial Intelligence & Machine Learning (2026)." />
     <meta name="keywords" content="Amey Jadhav, Fullstack Developer, React, Node.js, FastAPI, Python, Web Development, Portfolio, Pune" />
@@ -17,7 +32,7 @@
     <meta name="twitter:description" content="Fullstack developer building complete web applications from responsive React interfaces to robust APIs and databases." />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Manrope:wght@200..800&family=Inter:wght@100..900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -52,7 +67,7 @@
     }
     </script>
   </head>
-  <body class="bg-white text-foreground antialiased selection:bg-primary/20 selection:text-blue-900">
+  <body class="bg-bg text-text antialiased selection:bg-accent/20 selection:text-accent font-sans transition-colors duration-200">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
