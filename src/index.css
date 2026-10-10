@@ -7,29 +7,29 @@
   scroll-behavior: smooth;
   scroll-padding-top: 90px;
 
-  /* Editorial Light Palette */
-  --bg: #FAF8F4;
-  --bg-alt: #F0ECE4;
-  --text: #1A1A1A;
-  --text-muted: #5C5C5C;
-  --border: #DDD7CC;
-  --accent: #C2410C;
-  --accent-hover: #9A3412;
+  /* Fresh Crisp Palette (Light) */
+  --bg: #F8FAFC;
+  --bg-alt: #F1F5F9;
+  --text: #0F172A;
+  --text-muted: #475569;
+  --border: #E2E8F0;
+  --accent: #0F766E;
+  --accent-hover: #0D9488;
   --card-bg: #FFFFFF;
 }
 
 html.dark {
   color-scheme: dark;
 
-  /* Editorial Dark Palette */
-  --bg: #121212;
-  --bg-alt: #1B1B1B;
-  --text: #ECECEC;
-  --text-muted: #A0A0A0;
-  --border: #2E2E2E;
-  --accent: #F97316;
-  --accent-hover: #FB923C;
-  --card-bg: #171717;
+  /* Fresh Modern Palette (Dark) */
+  --bg: #090D16;
+  --bg-alt: #0F1626;
+  --text: #F8FAFC;
+  --text-muted: #94A3B8;
+  --border: #1E293B;
+  --accent: #14B8A6;
+  --accent-hover: #2DD4BF;
+  --card-bg: #101726;
 }
 
 /* ===== Base Styles ===== */
@@ -55,7 +55,7 @@ body {
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Space Grotesk', 'Newsreader', -apple-system, sans-serif;
+    font-family: 'Space Grotesk', -apple-system, sans-serif;
     letter-spacing: -0.025em;
     color: var(--text);
   }

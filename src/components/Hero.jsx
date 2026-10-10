@@ -41,94 +41,94 @@ def get_projects(db: Session = Depends(get_db)):
     return db.query(Project).filter(Project.active == True).all()`
 
 const reactLines = [
-    [{ text: '// App.jsx — React Client', color: 'text-stone-500' }],
+    [{ text: '// App.jsx — React Client', color: 'text-slate-500' }],
     [
-        { text: 'import ', color: 'text-orange-400' },
-        { text: '{ useState, useEffect } ', color: 'text-stone-200' },
-        { text: 'from ', color: 'text-orange-400' },
-        { text: "'react'", color: 'text-amber-300' },
+        { text: 'import ', color: 'text-teal-400' },
+        { text: '{ useState, useEffect } ', color: 'text-cyan-300' },
+        { text: 'from ', color: 'text-teal-400' },
+        { text: "'react'", color: 'text-emerald-300' },
     ],
     [],
     [
-        { text: 'export default function ', color: 'text-orange-400' },
-        { text: 'App', color: 'text-stone-100' },
-        { text: '() {', color: 'text-stone-300' },
+        { text: 'export default function ', color: 'text-teal-400' },
+        { text: 'App', color: 'text-sky-300' },
+        { text: '() {', color: 'text-slate-300' },
     ],
     [
-        { text: '  const ', color: 'text-orange-400' },
-        { text: '[data, setData] = ', color: 'text-stone-300' },
-        { text: 'useState', color: 'text-amber-400' },
-        { text: '([])', color: 'text-stone-300' },
+        { text: '  const ', color: 'text-teal-400' },
+        { text: '[data, setData] = ', color: 'text-slate-300' },
+        { text: 'useState', color: 'text-cyan-300' },
+        { text: '([])', color: 'text-slate-300' },
     ],
     [],
     [
-        { text: '  useEffect', color: 'text-amber-400' },
-        { text: '(() => {', color: 'text-stone-300' },
+        { text: '  useEffect', color: 'text-cyan-300' },
+        { text: '(() => {', color: 'text-slate-300' },
     ],
     [
-        { text: '    fetch', color: 'text-stone-100' },
-        { text: "('/api/v1/projects')", color: 'text-amber-300' },
+        { text: '    fetch', color: 'text-sky-300' },
+        { text: "('/api/v1/projects')", color: 'text-emerald-300' },
     ],
     [
-        { text: '      .then(res => res.', color: 'text-stone-400' },
-        { text: 'json', color: 'text-stone-100' },
-        { text: '())', color: 'text-stone-400' },
+        { text: '      .then(res => res.', color: 'text-slate-400' },
+        { text: 'json', color: 'text-sky-300' },
+        { text: '())', color: 'text-slate-400' },
     ],
     [
-        { text: '      .then(json => ', color: 'text-stone-400' },
-        { text: 'setData', color: 'text-stone-100' },
-        { text: '(json))', color: 'text-stone-400' },
+        { text: '      .then(json => ', color: 'text-slate-400' },
+        { text: 'setData', color: 'text-sky-300' },
+        { text: '(json))', color: 'text-slate-400' },
     ],
-    [{ text: '  }, [])', color: 'text-stone-300' }],
+    [{ text: '  }, [])', color: 'text-slate-300' }],
     [],
     [
-        { text: '  return ', color: 'text-orange-400' },
-        { text: '<', color: 'text-stone-500' },
-        { text: 'ProjectsGrid', color: 'text-orange-300' },
-        { text: ' items={data} />', color: 'text-stone-300' },
+        { text: '  return ', color: 'text-teal-400' },
+        { text: '<', color: 'text-slate-500' },
+        { text: 'ProjectsGrid', color: 'text-cyan-300' },
+        { text: ' items={data} />', color: 'text-slate-300' },
     ],
-    [{ text: '}', color: 'text-stone-300' }],
+    [{ text: '}', color: 'text-slate-300' }],
 ]
 
 const fastApiLines = [
-    [{ text: '# main.py — FastAPI Backend Service', color: 'text-stone-500' }],
+    [{ text: '# main.py — FastAPI Backend Service', color: 'text-slate-500' }],
     [
-        { text: 'from ', color: 'text-orange-400' },
-        { text: 'fastapi ', color: 'text-stone-300' },
-        { text: 'import ', color: 'text-orange-400' },
-        { text: 'FastAPI, Depends', color: 'text-stone-200' },
+        { text: 'from ', color: 'text-teal-400' },
+        { text: 'fastapi ', color: 'text-slate-300' },
+        { text: 'import ', color: 'text-teal-400' },
+        { text: 'FastAPI, Depends', color: 'text-cyan-300' },
     ],
     [
-        { text: 'from ', color: 'text-orange-400' },
-        { text: 'sqlalchemy.orm ', color: 'text-stone-300' },
-        { text: 'import ', color: 'text-orange-400' },
-        { text: 'Session', color: 'text-stone-200' },
-    ],
-    [],
-    [
-        { text: 'app = ', color: 'text-stone-300' },
-        { text: 'FastAPI', color: 'text-amber-400' },
-        { text: '(title=', color: 'text-stone-400' },
-        { text: '"Fullstack API"', color: 'text-amber-300' },
-        { text: ')', color: 'text-stone-400' },
+        { text: 'from ', color: 'text-teal-400' },
+        { text: 'sqlalchemy.orm ', color: 'text-slate-300' },
+        { text: 'import ', color: 'text-teal-400' },
+        { text: 'Session', color: 'text-cyan-300' },
     ],
     [],
     [
-        { text: '@app.get', color: 'text-orange-400' },
-        { text: '("/api/v1/projects")', color: 'text-amber-300' },
+        { text: 'app = ', color: 'text-slate-300' },
+        { text: 'FastAPI', color: 'text-cyan-300' },
+        { text: '(title=', color: 'text-slate-400' },
+        { text: '"Fullstack API"', color: 'text-emerald-300' },
+        { text: ')', color: 'text-slate-400' },
+    ],
+    [],
+    [
+        { text: '@app.get', color: 'text-teal-400' },
+        { text: '("/api/v1/projects")', color: 'text-emerald-300' },
     ],
     [
-        { text: 'def ', color: 'text-orange-400' },
-        { text: 'get_projects', color: 'text-stone-100' },
-        { text: '(db: Session = ', color: 'text-stone-400' },
-        { text: 'Depends', color: 'text-amber-400' },
-        { text: '(get_db)):', color: 'text-stone-400' },
+        { text: 'def ', color: 'text-teal-400' },
+        { text: 'get_projects', color: 'text-sky-300' },
+        { text: '(db: Session = ', color: 'text-slate-400' },
+        { text: 'Depends', color: 'text-cyan-300' },
+        { text: '(get_db)):', color: 'text-slate-400' },
     ],
     [
-        { text: '    return ', color: 'text-orange-400' },
-        { text: 'db.query(Project).filter(Project.active == ', color: 'text-stone-300' },
-        { text: 'True', color: 'text-orange-400' },
-        { text: ').all()', color: 'text-stone-300' },
+        { text: '    return ', color: 'text-teal-400' },
+        { text: 'db.query(Project).filter(Project.active == ', color: 'text-slate-300' },
+        { text: 'True', color: 'text-teal-400' },
+        { text: ').all()', color: 'text-slate-300' },
     ],
 ]
 
@@ -180,7 +180,7 @@ const Hero = () => {
                     <div className="lg:col-span-7 flex flex-col items-start text-left">
                         {/* Status Badge */}
                         <div className="mb-6 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-card text-xs font-medium text-text-muted">
-                            <span className="w-2 h-2 rounded-full bg-emerald-600 inline-block animate-pulse" />
+                            <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse" />
                             Available for Opportunities
                         </div>
 
@@ -191,7 +191,7 @@ const Hero = () => {
 
                         {/* Role Pills */}
                         <div className="flex flex-wrap items-center gap-2 mb-5">
-                            <span className="px-2.5 py-1 text-xs font-semibold rounded-md border border-accent/40 bg-accent/10 text-accent">
+                            <span className="px-2.5 py-1 text-xs font-semibold rounded-md border border-accent/30 bg-accent/10 text-accent">
                                 Fullstack Developer
                             </span>
                             <span className="px-2.5 py-1 text-xs font-medium rounded-md border border-border bg-bg-alt text-text-muted">
@@ -260,9 +260,9 @@ const Hero = () => {
 
                     {/* Right Column: Editorial Dark Code Window */}
                     <div className="lg:col-span-5 w-full">
-                        <div className="w-full text-left rounded-xl bg-[#141414] text-stone-200 border border-[#2E2E2E] overflow-hidden shadow-subtle">
+                        <div className="w-full text-left rounded-xl bg-[#0D1117] text-slate-200 border border-[#21262D] overflow-hidden shadow-subtle">
                             {/* Window Header */}
-                            <div className="flex items-center justify-between px-4 py-3 bg-[#1C1C1C] border-b border-[#2E2E2E] select-none">
+                            <div className="flex items-center justify-between px-4 py-3 bg-[#161B22] border-b border-[#21262D] select-none">
                                 {/* Window dots */}
                                 <div className="flex items-center gap-1.5">
                                     <span className="w-2.5 h-2.5 rounded-full bg-[#EF4444]/80 inline-block" />
@@ -271,14 +271,14 @@ const Hero = () => {
                                 </div>
 
                                 {/* Tab Toggles */}
-                                <div className="flex items-center gap-1 bg-[#121212] p-0.5 rounded-md border border-[#2E2E2E]">
+                                <div className="flex items-center gap-1 bg-[#0D1117] p-0.5 rounded-md border border-[#21262D]">
                                     <button
                                         type="button"
                                         onClick={() => setActiveTab('react')}
                                         className={`px-2.5 py-1 text-xs font-mono font-medium rounded transition-colors ${
                                             activeTab === 'react'
-                                                ? 'bg-[#242424] text-orange-300'
-                                                : 'text-stone-400 hover:text-stone-200'
+                                                ? 'bg-[#21262D] text-teal-300'
+                                                : 'text-slate-400 hover:text-slate-200'
                                         }`}
                                     >
                                         App.jsx
@@ -288,8 +288,8 @@ const Hero = () => {
                                         onClick={() => setActiveTab('fastapi')}
                                         className={`px-2.5 py-1 text-xs font-mono font-medium rounded transition-colors ${
                                             activeTab === 'fastapi'
-                                                ? 'bg-[#242424] text-orange-300'
-                                                : 'text-stone-400 hover:text-stone-200'
+                                                ? 'bg-[#21262D] text-teal-300'
+                                                : 'text-slate-400 hover:text-slate-200'
                                         }`}
                                     >
                                         main.py
@@ -301,7 +301,7 @@ const Hero = () => {
                                     type="button"
                                     onClick={handleCopy}
                                     aria-label="Copy snippet"
-                                    className="p-1.5 rounded text-stone-400 hover:text-stone-100 hover:bg-[#2A2A2A] transition-colors"
+                                    className="p-1.5 rounded text-slate-400 hover:text-slate-100 hover:bg-[#21262D] transition-colors"
                                 >
                                     {copied ? <Check size={13} className="text-emerald-400" /> : <Copy size={13} />}
                                 </button>
@@ -320,7 +320,7 @@ const Hero = () => {
                                     >
                                         {(activeTab === 'react' ? reactLines : fastApiLines).map((tokens, idx) => (
                                             <div key={idx} className="flex min-h-[1.25rem]">
-                                                <span className="w-6 select-none text-stone-600 text-right pr-3 flex-shrink-0">
+                                                <span className="w-6 select-none text-slate-600 text-right pr-3 flex-shrink-0">
                                                     {idx + 1}
                                                 </span>
                                                 <div className="flex-1 overflow-x-auto whitespace-pre">
@@ -341,9 +341,9 @@ const Hero = () => {
                             </div>
 
                             {/* Status Bar */}
-                            <div className="flex items-center justify-between px-4 py-2 bg-[#181818] border-t border-[#2E2E2E] text-[11px] font-mono text-stone-500">
+                            <div className="flex items-center justify-between px-4 py-2 bg-[#161B22] border-t border-[#21262D] text-[11px] font-mono text-slate-400">
                                 <span className="flex items-center gap-1.5">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-orange-400 inline-block" />
+                                    <span className="w-1.5 h-1.5 rounded-full bg-teal-400 inline-block animate-pulse" />
                                     fullstack: synced
                                 </span>
                                 <span>{activeTab === 'react' ? 'Client' : 'API'}</span>
