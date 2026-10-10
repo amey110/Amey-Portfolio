@@ -7,6 +7,7 @@ const navLinks = [
     { name: 'About', href: '#about' },
     { name: 'Skills', href: '#skills' },
     { name: 'Projects', href: '#projects' },
+    { name: 'Experience', href: '#experience' },
     { name: 'Contact', href: '#contact' },
 ]
 
@@ -41,7 +42,7 @@ const Navbar = () => {
     }, [])
 
     useEffect(() => {
-        const sections = ['home', 'about', 'skills', 'projects', 'contact']
+        const sections = ['home', 'about', 'skills', 'projects', 'experience', 'contact']
         
         const observerOptions = {
             root: null,
@@ -83,9 +84,9 @@ const Navbar = () => {
 
     return (
         <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-200 ${
-            scrolled ? 'py-3 bg-bg/95 border-b border-border' : 'py-4 bg-transparent'
+            scrolled ? 'py-3 bg-bg/95 border-b border-border shadow-none' : 'py-4 bg-transparent'
         }`}>
-            <div className="max-w-5xl mx-auto flex items-center justify-between px-6">
+            <div className="max-w-6xl mx-auto flex items-center justify-between px-6">
                 {/* Logo */}
                 <a
                     href="#"

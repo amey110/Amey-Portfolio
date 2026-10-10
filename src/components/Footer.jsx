@@ -4,7 +4,7 @@ const Footer = () => {
     const currentYear = new Date().getFullYear()
 
     return (
-        <footer className="py-10 border-t border-border bg-bg-alt transition-colors duration-200">
+        <footer className="py-10 border-t border-border bg-bg transition-colors duration-200">
             <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
                 {/* Logo */}
                 <a
@@ -27,7 +27,7 @@ const Footer = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label={social.label}
-                            className="text-text-muted hover:text-accent p-2 rounded-md hover:bg-card transition-colors duration-150"
+                            className="text-text-muted hover:text-accent p-2 rounded-md hover:bg-bg-alt transition-colors duration-150"
                         >
                             <social.icon size={16} />
                         </a>

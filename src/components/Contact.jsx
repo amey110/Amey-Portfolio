@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 import { Mail, Github, Linkedin, Send, Phone, Download, CheckCircle2 } from 'lucide-react'
 
 const Contact = () => {
@@ -51,12 +51,12 @@ const Contact = () => {
     ]
 
     return (
-        <section id="contact" className="scroll-mt-24 py-20 md:py-28 bg-bg transition-colors duration-200">
+        <section id="contact" className="scroll-mt-24 py-20 md:py-28 bg-bg-alt border-y border-border transition-colors duration-200">
             <div className="max-w-6xl mx-auto px-6">
                 {/* Header */}
                 <div className="section-header">
                     <p className="text-accent font-mono text-xs uppercase tracking-wider mb-2">
-                        04 / Contact
+                        05 / Contact
                     </p>
                     <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-text font-display mb-3">
                         Get in touch
@@ -85,9 +85,9 @@ const Contact = () => {
                                         key={item.label}
                                         href={item.href}
                                         {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                                        className="flex items-center gap-3 p-3 rounded-md border border-border hover:border-accent bg-bg-alt transition-colors duration-150 group"
+                                        className="flex items-center gap-3 p-3 rounded-md border border-border hover:border-accent bg-bg transition-colors duration-150 group"
                                     >
-                                        <div className="p-2 rounded bg-card border border-border text-accent group-hover:text-accent-hover transition-colors flex-shrink-0">
+                                        <div className="p-2 rounded bg-bg-alt border border-border text-accent group-hover:text-accent-hover transition-colors flex-shrink-0">
                                             <item.icon size={15} />
                                         </div>
                                         <div className="min-w-0">
@@ -128,7 +128,7 @@ const Contact = () => {
                                                 value={formData.name}
                                                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                                 placeholder="Amey Jadhav"
-                                                className="w-full px-3.5 py-2.5 bg-bg-alt rounded-md border border-border text-text placeholder:text-text-muted/50 font-medium text-xs sm:text-sm transition-colors focus:outline-none focus:border-accent"
+                                                className="w-full px-3.5 py-2.5 bg-bg rounded-md border border-border text-text placeholder:text-text-muted/50 font-medium text-xs sm:text-sm transition-colors focus:outline-none focus:border-accent"
                                             />
                                         </div>
                                         <div className="space-y-1">
@@ -139,7 +139,7 @@ const Contact = () => {
                                                 value={formData.email}
                                                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                                 placeholder="you@example.com"
-                                                className="w-full px-3.5 py-2.5 bg-bg-alt rounded-md border border-border text-text placeholder:text-text-muted/50 font-medium text-xs sm:text-sm transition-colors focus:outline-none focus:border-accent"
+                                                className="w-full px-3.5 py-2.5 bg-bg rounded-md border border-border text-text placeholder:text-text-muted/50 font-medium text-xs sm:text-sm transition-colors focus:outline-none focus:border-accent"
                                             />
                                         </div>
                                         <div className="space-y-1">
@@ -150,7 +150,7 @@ const Contact = () => {
                                                 value={formData.message}
                                                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                                                 placeholder="Tell me about your project or opportunity..."
-                                                className="w-full px-3.5 py-2.5 bg-bg-alt rounded-md border border-border text-text placeholder:text-text-muted/50 font-medium text-xs sm:text-sm resize-none transition-colors focus:outline-none focus:border-accent"
+                                                className="w-full px-3.5 py-2.5 bg-bg rounded-md border border-border text-text placeholder:text-text-muted/50 font-medium text-xs sm:text-sm resize-none transition-colors focus:outline-none focus:border-accent"
                                             ></textarea>
                                         </div>
                                         <button 
@@ -165,7 +165,7 @@ const Contact = () => {
                                 ) : (
                                     <div
                                         key="success-message"
-                                        className="flex flex-col items-center justify-center text-center p-8 min-h-[300px] bg-bg-alt border border-border rounded-xl"
+                                        className="flex flex-col items-center justify-center text-center p-8 min-h-[300px] bg-bg border border-border rounded-xl"
                                     >
                                         <div className="w-10 h-10 text-accent mb-3 flex items-center justify-center">
                                             <CheckCircle2 size={36} />
