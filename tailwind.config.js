@@ -19,6 +19,9 @@ export default {
         border: 'var(--border)',
         accent: 'var(--accent)',
         'accent-hover': 'var(--accent-hover)',
+        'accent-subtle': 'var(--accent-subtle)',
+        'accent-border': 'var(--accent-border)',
+        'accent-contrast': 'var(--accent-contrast)',
         card: 'var(--card-bg)',
         // Semantic compatibility
         background: 'var(--bg)',

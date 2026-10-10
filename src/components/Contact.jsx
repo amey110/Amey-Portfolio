@@ -156,7 +156,7 @@ const Contact = () => {
                                         <button 
                                             type="submit"
                                             disabled={isSubmitting}
-                                            className="w-full py-2.5 bg-accent hover:bg-accent-hover text-white rounded-md font-medium flex items-center justify-center gap-2 transition-colors text-xs sm:text-sm disabled:opacity-60 disabled:cursor-not-allowed"
+                                            className="w-full py-2.5 bg-accent hover:bg-accent-hover text-accent-contrast rounded-md font-medium flex items-center justify-center gap-2 transition-colors text-xs sm:text-sm disabled:opacity-60 disabled:cursor-not-allowed"
                                         >
                                             {isSubmitting ? 'Sending...' : 'Send Message'}
                                             <Send size={14} className={isSubmitting ? 'animate-pulse' : ''} />

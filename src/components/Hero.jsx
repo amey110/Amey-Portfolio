@@ -43,19 +43,19 @@ def get_projects(db: Session = Depends(get_db)):
 const reactLines = [
     [{ text: '// App.jsx — React Client', color: 'text-slate-500' }],
     [
-        { text: 'import ', color: 'text-teal-400' },
+        { text: 'import ', color: 'text-sky-400' },
         { text: '{ useState, useEffect } ', color: 'text-cyan-300' },
-        { text: 'from ', color: 'text-teal-400' },
+        { text: 'from ', color: 'text-sky-400' },
         { text: "'react'", color: 'text-emerald-300' },
     ],
     [],
     [
-        { text: 'export default function ', color: 'text-teal-400' },
+        { text: 'export default function ', color: 'text-sky-400' },
         { text: 'App', color: 'text-sky-300' },
         { text: '() {', color: 'text-slate-300' },
     ],
     [
-        { text: '  const ', color: 'text-teal-400' },
+        { text: '  const ', color: 'text-sky-400' },
         { text: '[data, setData] = ', color: 'text-slate-300' },
         { text: 'useState', color: 'text-cyan-300' },
         { text: '([])', color: 'text-slate-300' },
@@ -82,7 +82,7 @@ const reactLines = [
     [{ text: '  }, [])', color: 'text-slate-300' }],
     [],
     [
-        { text: '  return ', color: 'text-teal-400' },
+        { text: '  return ', color: 'text-sky-400' },
         { text: '<', color: 'text-slate-500' },
         { text: 'ProjectsGrid', color: 'text-cyan-300' },
         { text: ' items={data} />', color: 'text-slate-300' },
@@ -93,15 +93,15 @@ const reactLines = [
 const fastApiLines = [
     [{ text: '# main.py — FastAPI Backend Service', color: 'text-slate-500' }],
     [
-        { text: 'from ', color: 'text-teal-400' },
+        { text: 'from ', color: 'text-sky-400' },
         { text: 'fastapi ', color: 'text-slate-300' },
-        { text: 'import ', color: 'text-teal-400' },
+        { text: 'import ', color: 'text-sky-400' },
         { text: 'FastAPI, Depends', color: 'text-cyan-300' },
     ],
     [
-        { text: 'from ', color: 'text-teal-400' },
+        { text: 'from ', color: 'text-sky-400' },
         { text: 'sqlalchemy.orm ', color: 'text-slate-300' },
-        { text: 'import ', color: 'text-teal-400' },
+        { text: 'import ', color: 'text-sky-400' },
         { text: 'Session', color: 'text-cyan-300' },
     ],
     [],
@@ -114,20 +114,20 @@ const fastApiLines = [
     ],
     [],
     [
-        { text: '@app.get', color: 'text-teal-400' },
+        { text: '@app.get', color: 'text-sky-400' },
         { text: '("/api/v1/projects")', color: 'text-emerald-300' },
     ],
     [
-        { text: 'def ', color: 'text-teal-400' },
+        { text: 'def ', color: 'text-sky-400' },
         { text: 'get_projects', color: 'text-sky-300' },
         { text: '(db: Session = ', color: 'text-slate-400' },
         { text: 'Depends', color: 'text-cyan-300' },
         { text: '(get_db)):', color: 'text-slate-400' },
     ],
     [
-        { text: '    return ', color: 'text-teal-400' },
+        { text: '    return ', color: 'text-sky-400' },
         { text: 'db.query(Project).filter(Project.active == ', color: 'text-slate-300' },
-        { text: 'True', color: 'text-teal-400' },
+        { text: 'True', color: 'text-sky-400' },
         { text: ').all()', color: 'text-slate-300' },
     ],
 ]
@@ -191,7 +191,7 @@ const Hero = () => {
 
                         {/* Role Pills */}
                         <div className="flex flex-wrap items-center gap-2 mb-5">
-                            <span className="px-2.5 py-1 font-mono text-[0.75rem] uppercase tracking-[0.08em] font-medium rounded-md border border-accent/30 bg-accent/10 text-accent">
+                            <span className="px-2.5 py-1 font-mono text-[0.75rem] uppercase tracking-[0.08em] font-medium rounded-md border border-accent-border bg-accent-subtle text-accent">
                                 Fullstack Developer
                             </span>
                             <span className="px-2.5 py-1 font-mono text-[0.75rem] uppercase tracking-[0.08em] font-medium rounded-md border border-border bg-bg-alt text-text-muted">
@@ -221,7 +221,7 @@ const Hero = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 download
-                                className="px-5 py-2.5 bg-accent hover:bg-accent-hover text-white rounded-md text-sm font-medium flex items-center justify-center gap-2 transition-colors duration-150"
+                                className="px-5 py-2.5 bg-accent hover:bg-accent-hover text-accent-contrast rounded-md text-sm font-medium flex items-center justify-center gap-2 transition-colors duration-150"
                             >
                                 <Download size={15} />
                                 Download Resume
@@ -277,7 +277,7 @@ const Hero = () => {
                                         onClick={() => setActiveTab('react')}
                                         className={`px-2.5 py-1 text-xs font-mono font-medium rounded transition-colors ${
                                             activeTab === 'react'
-                                                ? 'bg-[#21262D] text-teal-300'
+                                                ? 'bg-[#21262D] text-sky-400'
                                                 : 'text-slate-400 hover:text-slate-200'
                                         }`}
                                     >
@@ -288,7 +288,7 @@ const Hero = () => {
                                         onClick={() => setActiveTab('fastapi')}
                                         className={`px-2.5 py-1 text-xs font-mono font-medium rounded transition-colors ${
                                             activeTab === 'fastapi'
-                                                ? 'bg-[#21262D] text-teal-300'
+                                                ? 'bg-[#21262D] text-sky-400'
                                                 : 'text-slate-400 hover:text-slate-200'
                                         }`}
                                     >
@@ -343,7 +343,7 @@ const Hero = () => {
                             {/* Status Bar */}
                             <div className="flex items-center justify-between px-4 py-2 bg-[#161B22] border-t border-[#21262D] text-[11px] font-mono text-slate-400">
                                 <span className="flex items-center gap-1.5">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-teal-400 inline-block animate-pulse" />
+                                    <span className="w-1.5 h-1.5 rounded-full bg-sky-400 inline-block animate-pulse" />
                                     fullstack: synced
                                 </span>
                                 <span>{activeTab === 'react' ? 'Client' : 'API'}</span>

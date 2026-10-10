@@ -7,29 +7,35 @@
   scroll-behavior: smooth;
   scroll-padding-top: 90px;
 
-  /* Fresh Crisp Palette (Light) */
+  /* React Blue Palette (Light) */
   --bg: #F8FAFC;
-  --bg-alt: #F1F5F9;
+  --bg-alt: #F0F4F8;
   --text: #0F172A;
   --text-muted: #475569;
   --border: #E2E8F0;
-  --accent: #0F766E;
-  --accent-hover: #0D9488;
+  --accent: #087EA4;
+  --accent-hover: #066787;
+  --accent-subtle: rgba(8, 126, 164, 0.08);
+  --accent-border: rgba(8, 126, 164, 0.25);
+  --accent-contrast: #FFFFFF;
   --card-bg: #FFFFFF;
 }
 
 html.dark {
   color-scheme: dark;
 
-  /* Fresh Modern Palette (Dark) */
-  --bg: #090D16;
-  --bg-alt: #0F1626;
+  /* React Logo Cyan-Blue Palette (Dark) */
+  --bg: #0B0F19;
+  --bg-alt: #111827;
   --text: #F8FAFC;
   --text-muted: #94A3B8;
   --border: #1E293B;
-  --accent: #14B8A6;
-  --accent-hover: #2DD4BF;
-  --card-bg: #101726;
+  --accent: #58C4DC;
+  --accent-hover: #7EE0F5;
+  --accent-subtle: rgba(88, 196, 220, 0.12);
+  --accent-border: rgba(88, 196, 220, 0.3);
+  --accent-contrast: #0B0F19;
+  --card-bg: #111827;
 }
 
 /* ===== Base Styles ===== */

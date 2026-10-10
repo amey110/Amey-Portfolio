@@ -157,7 +157,7 @@ const Projects = () => {
                                             href={project.demo}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="flex-1 px-3 py-2 bg-accent hover:bg-accent-hover text-white rounded-md text-xs font-medium flex items-center justify-center gap-1.5 transition-colors"
+                                            className="flex-1 px-3 py-2 bg-accent hover:bg-accent-hover text-accent-contrast rounded-md text-xs font-medium flex items-center justify-center gap-1.5 transition-colors"
                                         >
                                             Live Demo
                                             <ExternalLink size={13} />
