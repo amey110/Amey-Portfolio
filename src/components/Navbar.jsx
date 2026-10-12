@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { Github, Linkedin, Menu, X, Download, Sun, Moon } from 'lucide-react'
 import { useState, useEffect } from 'react'
+import { RESUME_URL } from '../constants'
 
 const navLinks = [
     { name: 'Home', href: '#' },
@@ -148,7 +149,7 @@ const Navbar = () => {
                         <Linkedin size={16} />
                     </a>
                     <a
-                        href="/resume/Amey_Jadhav_Resume.pdf"
+                        href={RESUME_URL}
                         target="_blank"
                         rel="noopener noreferrer"
                         download
@@ -238,7 +239,7 @@ const Navbar = () => {
                             </div>
 
                             <a
-                                href="/resume/Amey_Jadhav_Resume.pdf"
+                                href={RESUME_URL}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 download

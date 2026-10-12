@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import { Mail, Github, Linkedin, Send, Phone, Download, CheckCircle2 } from 'lucide-react'
+import { RESUME_URL } from '../constants'
 
 const Contact = () => {
     const [formData, setFormData] = useState({ name: '', email: '', message: '' })
@@ -100,7 +101,7 @@ const Contact = () => {
 
                             {/* Download Resume Button */}
                             <a
-                                href="/resume/Amey_Jadhav_Resume.pdf"
+                                href={RESUME_URL}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 download

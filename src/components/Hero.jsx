@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, Download, Mail, Copy, Check, Terminal } from 'lucide-react'
+import { RESUME_URL } from '../constants'
 
 const TYPING_WORDS = ['React UI', 'REST APIs', 'Databases', 'Deployment']
 
@@ -217,7 +218,7 @@ const Hero = () => {
                         {/* CTAs */}
                         <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto mb-10">
                             <a
-                                href="/resume/Amey_Jadhav_Resume.pdf"
+                                href={RESUME_URL}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 download
